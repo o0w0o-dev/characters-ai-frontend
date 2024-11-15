@@ -1,4 +1,5 @@
 import Menu from "./Menu";
+import Field from "./Field";
 
 export default function Main({ menuStatus }) {
   return (
@@ -10,6 +11,22 @@ export default function Main({ menuStatus }) {
 
             <Menu menuStatus={menuStatus} />
           </div>
+        </div>
+        <div className="login">
+          <Field
+            field={{
+              title: "Password",
+              text: "●●●●●●●●",
+              type: "loginPassword",
+            }}
+          />
+          <Field
+            field={{
+              title: "Email",
+              text: "user@example.com",
+              type: "loginEmail",
+            }}
+          />
         </div>
       </div>
     </div>

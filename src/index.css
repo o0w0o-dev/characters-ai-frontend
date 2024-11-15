@@ -68,7 +68,15 @@
   width: 222px;
 }
 
-.menu .text-24 {
+.login {
+  height: 650px;
+  left: 316px;
+  position: absolute;
+  top: 148px;
+  width: 459px;
+}
+
+.text-24 {
   color: var(--text);
   font-family: var(--text-24-font-family);
   font-size: var(--text-24-font-size);
@@ -79,5 +87,81 @@
   line-height: var(--text-24-line-height);
   position: absolute;
   top: 15px;
+  white-space: nowrap;
+}
+
+.field-email {
+  background-color: var(--text);
+  border-radius: 15px;
+  height: 59px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 459px;
+}
+
+.email-title-text-24 {
+  color: var(--text);
+  font-family: var(--text-24-font-family);
+  font-size: var(--text-24-font-size);
+  font-style: var(--text-24-font-style);
+  font-weight: var(--text-24-font-weight);
+  left: 0;
+  letter-spacing: var(--text-24-letter-spacing);
+  line-height: var(--text-24-line-height);
+  position: absolute;
+  top: -42px;
+  white-space: nowrap;
+}
+
+.email-text-24-block {
+  color: var(--block);
+  font-family: var(--text-24-font-family);
+  font-size: var(--text-24-font-size);
+  font-style: var(--text-24-font-style);
+  font-weight: var(--text-24-font-weight);
+  left: 20px;
+  letter-spacing: var(--text-24-letter-spacing);
+  line-height: var(--text-24-line-height);
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+}
+
+.field-password {
+  background-color: var(--text);
+  border-radius: 15px;
+  height: 59px;
+  left: 0;
+  position: absolute;
+  top: 148px;
+  width: 459px;
+}
+
+.password-title-text-24 {
+  color: var(--text);
+  font-family: var(--text-24-font-family);
+  font-size: var(--text-24-font-size);
+  font-style: var(--text-24-font-style);
+  font-weight: var(--text-24-font-weight);
+  left: 0;
+  letter-spacing: var(--text-24-letter-spacing);
+  line-height: var(--text-24-line-height);
+  position: absolute;
+  top: -42px;
+  white-space: nowrap;
+}
+
+.password-text-24-block {
+  color: var(--block);
+  font-family: var(--text-24-font-family);
+  font-size: var(--text-24-font-size);
+  font-style: var(--text-24-font-style);
+  font-weight: var(--text-24-font-weight);
+  left: 20px;
+  letter-spacing: var(--text-24-letter-spacing);
+  line-height: var(--text-24-line-height);
+  position: absolute;
+  top: 16px;
   white-space: nowrap;
 }
