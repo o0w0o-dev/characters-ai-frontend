@@ -1,5 +1,8 @@
 import { useState } from "react";
-import Main from "./Main";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   // Menu's buttons
@@ -14,9 +17,13 @@ function App() {
   ]);
 
   return (
-    <div>
-      <Main menuStatus={menuStatus} />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home menuStatus={menuStatus} />} />
+        <Route path="/login" element={<Login menuStatus={menuStatus} />} />
+        <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
