@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   // Menu's buttons
@@ -21,6 +22,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home menuStatus={menuStatus} />} />
         <Route path="/login" element={<Login menuStatus={menuStatus} />} />
+        <Route
+          path="/forgot"
+          element={<ForgotPassword menuStatus={menuStatus} />}
+        />
         <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
       </Routes>
     </BrowserRouter>

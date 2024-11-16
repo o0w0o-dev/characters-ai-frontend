@@ -8,6 +8,10 @@ export default function Button({ button }) {
       div: "button-loginWithGoogle",
       body: "button-size-4",
     },
+    recovery: {
+      div: "button-recovery-1",
+      body: "button-recovery-2",
+    },
   };
 
   const style = styles[button.type];
@@ -20,3 +24,9 @@ export default function Button({ button }) {
     </button>
   );
 }
+
+<button className="button-20">
+  <div className="button-21" />
+
+  <div className="home-6">Recovery</div>
+</button>;

@@ -10,6 +10,11 @@ export default function Field({ field }) {
       title: "password-title-text-24",
       text: "password-text-24-block",
     },
+    emailRecovery: {
+      div: "field-email-recovery",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
   };
 
   const style = styles[field.type];
