@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import EmailVerification from "./pages/EmailVerification";
 import PageNotFound from "./pages/PageNotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 
@@ -24,9 +25,14 @@ function App() {
         <Route path="/" element={<Home menuStatus={menuStatus} />} />
         <Route path="/login" element={<Login menuStatus={menuStatus} />} />
         <Route path="/signup" element={<SignUp menuStatus={menuStatus} />} />
+
         <Route
           path="/forgot"
           element={<ForgotPassword menuStatus={menuStatus} />}
+        />
+        <Route
+          path="/verify"
+          element={<EmailVerification menuStatus={menuStatus} />}
         />
         <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
       </Routes>
