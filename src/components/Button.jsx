@@ -12,6 +12,14 @@ export default function Button({ button }) {
       div: "button-recovery-1",
       body: "button-recovery-2",
     },
+    verifyBack: {
+      div: "button-verify-back",
+      body: "button-verify",
+    },
+    verifyContinue: {
+      div: "button-verify-continue",
+      body: "button-verify",
+    },
   };
 
   const style = styles[button.type];

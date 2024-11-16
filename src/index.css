@@ -148,6 +148,16 @@
   width: 459px;
 }
 
+.field-email-verification {
+  background-color: var(--text);
+  border-radius: 15px;
+  height: 59px;
+  left: 316px;
+  position: absolute;
+  top: 148px;
+  width: 459px;
+}
+
 .password-title-text-24 {
   color: var(--text);
   font-family: var(--text-24-font-family);
@@ -280,4 +290,72 @@
   position: absolute;
   top: 0;
   width: 222px;
+}
+
+.button-verify-back {
+  all: unset;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 316px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 739px;
+  width: 222px;
+}
+
+.button-verify {
+  background-color: var(--selected);
+  border-radius: 15px;
+  height: 59px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 222px;
+}
+
+.button-verify-continue {
+  all: unset;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 553px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 739px;
+  width: 222px;
+}
+
+.text-resend {
+  color: var(--text);
+  font-family: var(--text-14-font-family);
+  font-size: var(--text-14-font-size);
+  font-style: var(--text-14-font-style);
+  font-weight: var(--text-14-font-weight);
+  left: 628px;
+  letter-spacing: var(--text-14-letter-spacing);
+  line-height: var(--text-14-line-height);
+  position: absolute;
+  top: 221px;
+  white-space: nowrap;
+}
+
+.text-invalid-code {
+  color: var(--red);
+  font-family: var(--text-14-font-family);
+  font-size: var(--text-14-font-size);
+  font-style: var(--text-14-font-style);
+  font-weight: var(--text-14-font-weight);
+  left: 643px;
+  letter-spacing: var(--text-14-letter-spacing);
+  line-height: var(--text-14-line-height);
+  position: absolute;
+  top: 169px;
+  white-space: nowrap;
 }
