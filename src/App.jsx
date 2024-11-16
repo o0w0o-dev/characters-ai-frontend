@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import PageNotFound from "./pages/PageNotFound";
 import ForgotPassword from "./pages/ForgotPassword";
 
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home menuStatus={menuStatus} />} />
         <Route path="/login" element={<Login menuStatus={menuStatus} />} />
+        <Route path="/signup" element={<SignUp menuStatus={menuStatus} />} />
         <Route
           path="/forgot"
           element={<ForgotPassword menuStatus={menuStatus} />}
