@@ -1,11 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Field from "../components/Field";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="login">
-        <p className="don-t-have-an-account">Already have an account? Login</p>
+        <p className="don-t-have-an-account" onClick={() => navigate("/login")}>
+          Already have an account? Login
+        </p>
 
         <Button button={{ type: "login", text: "Sign Up" }} />
         <Button
