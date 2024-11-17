@@ -421,3 +421,74 @@
   top: 590px;
   width: 459px;
 }
+
+.text-64 {
+  color: #ffffff;
+  font-family: var(--text-64-font-family);
+  font-size: var(--text-64-font-size);
+  font-style: var(--text-64-font-style);
+  font-weight: var(--text-64-font-weight);
+  left: 316px;
+  letter-spacing: var(--text-64-letter-spacing);
+  line-height: var(--text-64-line-height);
+  position: absolute;
+  top: 625px;
+  white-space: nowrap;
+}
+
+.text-32 {
+  color: var(--text);
+  font-family: var(--text-32-font-family);
+  font-size: var(--text-32-font-size);
+  font-style: var(--text-32-font-style);
+  font-weight: var(--text-32-font-weight);
+  left: 316px;
+  letter-spacing: var(--text-32-letter-spacing);
+  line-height: var(--text-32-line-height);
+  position: absolute;
+  top: 703px;
+  width: 1485px;
+}
+
+.home-image {
+  height: 580px;
+  left: 233px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1642px;
+}
+
+.circle-button {
+  background-color: var(--selected);
+  border-radius: 32px;
+  height: 64px;
+  position: relative;
+  width: 64px;
+}
+
+.div-5 {
+  color: #ffffff;
+  font-family: var(--text-32-font-family);
+  font-size: var(--text-32-font-size);
+  font-style: var(--text-32-font-style);
+  font-weight: var(--text-32-font-weight);
+  left: 23px;
+  letter-spacing: var(--text-32-letter-spacing);
+  line-height: var(--text-32-line-height);
+  position: absolute;
+  top: 14px;
+  white-space: nowrap;
+}
+
+.left {
+  left: 252px !important;
+  position: absolute !important;
+  top: 254px !important;
+}
+
+.right {
+  left: 1787px !important;
+  position: absolute !important;
+  top: 254px !important;
+}
