@@ -24,6 +24,10 @@ export default function Button({ button }) {
       div: "reset-1",
       body: "button-verify",
     },
+    reset2: {
+      div: "reset-2",
+      body: "button-verify",
+    },
   };
 
   const style = styles[button.type];

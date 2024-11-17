@@ -25,6 +25,26 @@ export default function Field({ field }) {
       title: "email-title-text-24",
       text: "email-text-24-block",
     },
+    emailReset: {
+      div: "field-email-verification",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
+    oldPassword: {
+      div: "old-password",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
+    newPassword: {
+      div: "new-password",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
+    newPassword2: {
+      div: "new-password-2",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
   };
 
   const style = styles[field.type];
