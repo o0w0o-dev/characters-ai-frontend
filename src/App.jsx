@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import EmailVerification from "./pages/EmailVerification";
+import ForgotPassword from "./pages/ForgotPassword";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
-import EmailVerification from "./pages/EmailVerification";
 import PageNotFound from "./pages/PageNotFound";
-import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import Settings from "./pages/Settings";
+import SignUp from "./pages/SignUp";
 
 function App() {
   // Menu's buttons
@@ -38,6 +39,10 @@ function App() {
         <Route
           path="/settings"
           element={<Settings menuStatus={menuStatus} />}
+        />
+        <Route
+          path="/reset"
+          element={<ResetPassword menuStatus={menuStatus} />}
         />
         <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
       </Routes>
