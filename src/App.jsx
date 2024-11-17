@@ -8,34 +8,28 @@ import PageNotFound from "./pages/PageNotFound";
 import ResetPassword from "./pages/ResetPassword";
 import Settings from "./pages/Settings";
 import SignUp from "./pages/SignUp";
-import { menu } from "./config";
+import { createMenu } from "./config";
 
 function App() {
   // Menu's buttons
-  const [menuStatus, setMenuStatus] = useState(menu.init);
   const [loginStatus, setLoginStatus] = useState(false);
+  const [menuStatus, setMenuStatus] = useState(createMenu(loginStatus, "Home"));
 
   console.log(menuStatus);
+  console.log(loginStatus);
 
   function handleMenuClick(elementText) {
-    const buttons = loginStatus ? menu.login : menu.init;
-    setMenuStatus(
-      buttons.map((button) =>
-        button.text === elementText
-          ? { ...button, selected: true }
-          : { ...button, selected: false }
-      )
-    );
+    setMenuStatus(createMenu(loginStatus, elementText));
   }
 
   function handleLogin() {
-    setMenuStatus(menu.login);
     setLoginStatus(true);
+    setMenuStatus(createMenu(true, "Settings"));
   }
 
   function handleLogout() {
-    setMenuStatus(menu.init);
     setLoginStatus(false);
+    setMenuStatus(createMenu(false, "Home"));
   }
 
   return (

@@ -35,7 +35,7 @@ export default function Button({ button, onLogin }) {
     },
   };
 
-  function onClick(e) {
+  function onClick() {
     if (button.type === "login") onLogin();
     const path = buttonPaths.find((path) => path.type === button.type)?.path;
     navigate(path);

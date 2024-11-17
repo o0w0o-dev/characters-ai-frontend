@@ -11,19 +11,17 @@ const menuButtonPaths = [
 // for buttons not in menu
 const buttonPaths = [{ type: "login", path: "/settings" }];
 
-const menu = {
-  init: menuButtonPaths.map((path) => ({
+function createMenu(login, selected) {
+  return menuButtonPaths.map((path) => ({
     text: path.type,
-    selected: path.type === "Home" ? true : false,
-    display: path.type === "Home" || path.type === "Login" ? true : false,
+    selected: path.type === selected,
+    display: login
+      ? path.type !== "Login"
+      : path.type === "Home" || path.type === "Login"
+      ? true
+      : false,
     path: path.path,
-  })),
-  login: menuButtonPaths.map((path) => ({
-    text: path.type,
-    selected: path.type === "Home" ? true : false,
-    display: path.type !== "Login" ? true : false,
-    path: path.path,
-  })),
-};
+  }));
+}
 
-export { menu, menuButtonPaths, buttonPaths };
+export { createMenu, menuButtonPaths, buttonPaths };
