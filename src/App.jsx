@@ -17,6 +17,17 @@ function App() {
 
   console.log(menuStatus);
 
+  function handleMenuClick(elementText) {
+    const buttons = loginStatus ? menu.login : menu.init;
+    setMenuStatus(
+      buttons.map((button) =>
+        button.text === elementText
+          ? { ...button, selected: true }
+          : { ...button, selected: false }
+      )
+    );
+  }
+
   function handleLogin() {
     setMenuStatus(menu.login);
     setLoginStatus(true);
@@ -30,20 +41,25 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main menuStatus={menuStatus} />} />
+        <Route
+          path="/"
+          element={
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick} />
+          }
+        />
         <Route
           path="/login"
           element={
-            <Main menuStatus={menuStatus}>
-              <Login menuStatus={menuStatus} onLogin={handleLogin} />
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+              <Login onLogin={handleLogin} />
             </Main>
           }
         />
         <Route
           path="/signup"
           element={
-            <Main menuStatus={menuStatus}>
-              <SignUp menuStatus={menuStatus} />
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+              <SignUp />
             </Main>
           }
         />
@@ -51,36 +67,36 @@ function App() {
         <Route
           path="/forgot"
           element={
-            <Main menuStatus={menuStatus}>
-              <ForgotPassword menuStatus={menuStatus} />
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+              <ForgotPassword />
             </Main>
           }
         />
         <Route
           path="/verify"
           element={
-            <Main menuStatus={menuStatus}>
-              <EmailVerification menuStatus={menuStatus} />
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+              <EmailVerification />
             </Main>
           }
         />
         <Route
           path="/settings"
           element={
-            <Main menuStatus={menuStatus}>
-              <Settings menuStatus={menuStatus} />
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+              <Settings />
             </Main>
           }
         />
         <Route
           path="/reset"
           element={
-            <Main menuStatus={menuStatus}>
-              <ResetPassword menuStatus={menuStatus} />
+            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+              <ResetPassword />
             </Main>
           }
         />
-        <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );

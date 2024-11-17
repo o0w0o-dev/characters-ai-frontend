@@ -1,8 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Menu({ menuStatus }) {
+export default function Menu({ menuStatus, onMenuClick }) {
   const navigate = useNavigate();
   const displayButton = menuStatus.filter((button) => button.display === true);
+
+  function onClick(elementText, path) {
+    onMenuClick(elementText);
+    navigate(path);
+  }
 
   return (
     <div className="menu">
@@ -14,7 +19,7 @@ export default function Menu({ menuStatus }) {
               (menuStatus.length - displayButton.length - 2) * 74 + index * 74,
           }}
           key={button.text}
-          onClick={() => navigate(button.path)}
+          onClick={(e) => onClick(e.target.textContent, button.path)}
         >
           <div className="text-24">{button.text}</div>
         </div>
