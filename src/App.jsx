@@ -8,29 +8,29 @@ import PageNotFound from "./pages/PageNotFound";
 import ResetPassword from "./pages/ResetPassword";
 import Settings from "./pages/Settings";
 import SignUp from "./pages/SignUp";
+import { menu } from "./config";
 
 function App() {
   // Menu's buttons
-  const [menuStatus, setMenuStatus] = useState([
-    { text: "Home", selected: true, display: true, path: "/" },
-    { text: "Chat", selected: false, display: false, path: "/chat" },
-    {
-      text: "Characters",
-      selected: false,
-      display: false,
-      path: "/characters",
-    },
-    { text: "Settings", selected: false, display: false, path: "/settings" },
-    { text: "Pro", selected: false, display: false, path: "/pro" },
-    { text: "Login", selected: false, display: true, path: "/login" },
-    { text: "Logout", selected: false, display: false, path: "/" },
-  ]);
+  const [menuStatus, setMenuStatus] = useState(menu.init);
+  console.log(menuStatus);
+
+  function handleLogin() {
+    setMenuStatus(menu.login);
+  }
+
+  function handleLogout() {
+    setMenuStatus(menu.init);
+  }
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home menuStatus={menuStatus} />} />
-        <Route path="/login" element={<Login menuStatus={menuStatus} />} />
+        <Route
+          path="/login"
+          element={<Login menuStatus={menuStatus} onLogin={handleLogin} />}
+        />
         <Route path="/signup" element={<SignUp menuStatus={menuStatus} />} />
 
         <Route

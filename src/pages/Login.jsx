@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import Field from "../components/Field";
 import Main from "../components/Main";
 
-export default function Login({ menuStatus }) {
+export default function Login({ menuStatus, onLogin }) {
   return (
     <Main menuStatus={menuStatus}>
       <div className="login">
@@ -11,7 +11,7 @@ export default function Login({ menuStatus }) {
           Don't have an account yet? Sign Up
         </p>
 
-        <Button button={{ type: "login", text: "Login" }} />
+        <Button button={{ type: "login", text: "Login" }} onLogin={onLogin} />
         <Button
           button={{ type: "loginWithGoogle", text: "Login with Google" }}
         />

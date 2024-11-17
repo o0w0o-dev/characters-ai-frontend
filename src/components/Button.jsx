@@ -1,4 +1,9 @@
-export default function Button({ button }) {
+import { useNavigate } from "react-router-dom";
+import { buttonPaths } from "../config";
+
+export default function Button({ button, onLogin }) {
+  const navigate = useNavigate();
+
   const styles = {
     login: {
       div: "button-login",
@@ -31,9 +36,10 @@ export default function Button({ button }) {
   };
 
   const style = styles[button.type];
+  const path = buttonPaths.find((path) => path.type === button.type)?.path;
 
   return (
-    <button className={style.div}>
+    <button className={style.div} onClick={() => navigate(path)}>
       <div className={style.body} />
 
       <div className="text-wrapper-16">{button.text}</div>
