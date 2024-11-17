@@ -13,6 +13,10 @@ export default function Button({ button, onLogin }) {
       div: "button-loginWithGoogle",
       body: "button-size-4",
     },
+    signup: {
+      div: "button-login",
+      body: "button-size-4",
+    },
     recovery: {
       div: "button-recovery-1",
       body: "button-recovery-2",

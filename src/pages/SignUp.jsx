@@ -11,7 +11,7 @@ export default function SignUp() {
           Already have an account? Login
         </p>
 
-        <Button button={{ type: "login", text: "Sign Up" }} />
+        <Button button={{ type: "signup", text: "Sign Up" }} />
         <Button
           button={{ type: "loginWithGoogle", text: "Sign Up with Google" }}
         />

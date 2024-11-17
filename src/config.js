@@ -12,6 +12,7 @@ const menuButtonPaths = [
 const buttonPaths = [
   { type: "login", path: "/settings" },
   { type: "recovery", path: "/" },
+  { type: "signup", path: "/verify" },
 ];
 
 function createMenu(login, selected) {
