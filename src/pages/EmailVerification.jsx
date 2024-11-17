@@ -1,10 +1,9 @@
 import Button from "../components/Button";
 import Field from "../components/Field";
-import Main from "../components/Main";
 
-export default function EmailVerification({ menuStatus }) {
+export default function EmailVerification() {
   return (
-    <Main menuStatus={menuStatus}>
+    <>
       <Field
         field={{
           title: "Please enter verify code:",
@@ -18,6 +17,6 @@ export default function EmailVerification({ menuStatus }) {
       <div className="text-resend">Resend the verify code</div>
 
       <div className="text-invalid-code">Invalid verify code</div>
-    </Main>
+    </>
   );
 }

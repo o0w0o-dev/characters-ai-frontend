@@ -1,5 +1,6 @@
-import Main from "../components/Main";
+// TODO: replace Home with Main
+// import Main from "../components/Main";
 
-export default function Home({ menuStatus }) {
-  return <Main menuStatus={menuStatus} />;
-}
+// export default function Home({ menuStatus }) {
+//   return <Main menuStatus={menuStatus} />;
+// }

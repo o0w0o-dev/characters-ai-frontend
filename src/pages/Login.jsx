@@ -1,10 +1,9 @@
 import Button from "../components/Button";
 import Field from "../components/Field";
-import Main from "../components/Main";
 
-export default function Login({ menuStatus, onLogin }) {
+export default function Login({ onLogin }) {
   return (
-    <Main menuStatus={menuStatus}>
+    <>
       <div className="login">
         <div className="recovery-password-url">recovery password</div>
         <p className="don-t-have-an-account">
@@ -31,6 +30,6 @@ export default function Login({ menuStatus, onLogin }) {
           }}
         />
       </div>
-    </Main>
+    </>
   );
 }

@@ -1,10 +1,9 @@
 import Button from "../components/Button";
 import Field from "../components/Field";
-import Main from "../components/Main";
 
-export default function SignUp({ menuStatus }) {
+export default function SignUp() {
   return (
-    <Main menuStatus={menuStatus}>
+    <>
       <div className="login">
         <p className="don-t-have-an-account">Already have an account? Login</p>
 
@@ -28,6 +27,6 @@ export default function SignUp({ menuStatus }) {
           }}
         />
       </div>
-    </Main>
+    </>
   );
 }

@@ -1,10 +1,9 @@
 import Button from "../components/Button";
 import Field from "../components/Field";
-import Main from "../components/Main";
 
-export default function ForgotPassword({ menuStatus }) {
+export default function ForgotPassword() {
   return (
-    <Main menuStatus={menuStatus}>
+    <>
       <Button button={{ type: "recovery", text: "Recovery" }} />
       <Field
         field={{
@@ -13,6 +12,6 @@ export default function ForgotPassword({ menuStatus }) {
           type: "emailRecovery",
         }}
       />
-    </Main>
+    </>
   );
 }

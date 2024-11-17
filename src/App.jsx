@@ -2,8 +2,8 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmailVerification from "./pages/EmailVerification";
 import ForgotPassword from "./pages/ForgotPassword";
-import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Main from "./components/Main";
 import PageNotFound from "./pages/PageNotFound";
 import ResetPassword from "./pages/ResetPassword";
 import Settings from "./pages/Settings";
@@ -30,28 +30,55 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home menuStatus={menuStatus} />} />
+        <Route path="/" element={<Main menuStatus={menuStatus} />} />
         <Route
           path="/login"
-          element={<Login menuStatus={menuStatus} onLogin={handleLogin} />}
+          element={
+            <Main menuStatus={menuStatus}>
+              <Login menuStatus={menuStatus} onLogin={handleLogin} />
+            </Main>
+          }
         />
-        <Route path="/signup" element={<SignUp menuStatus={menuStatus} />} />
+        <Route
+          path="/signup"
+          element={
+            <Main menuStatus={menuStatus}>
+              <SignUp menuStatus={menuStatus} />
+            </Main>
+          }
+        />
 
         <Route
           path="/forgot"
-          element={<ForgotPassword menuStatus={menuStatus} />}
+          element={
+            <Main menuStatus={menuStatus}>
+              <ForgotPassword menuStatus={menuStatus} />
+            </Main>
+          }
         />
         <Route
           path="/verify"
-          element={<EmailVerification menuStatus={menuStatus} />}
+          element={
+            <Main menuStatus={menuStatus}>
+              <EmailVerification menuStatus={menuStatus} />
+            </Main>
+          }
         />
         <Route
           path="/settings"
-          element={<Settings menuStatus={menuStatus} />}
+          element={
+            <Main menuStatus={menuStatus}>
+              <Settings menuStatus={menuStatus} />
+            </Main>
+          }
         />
         <Route
           path="/reset"
-          element={<ResetPassword menuStatus={menuStatus} />}
+          element={
+            <Main menuStatus={menuStatus}>
+              <ResetPassword menuStatus={menuStatus} />
+            </Main>
+          }
         />
         <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
       </Routes>

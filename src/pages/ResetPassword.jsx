@@ -1,10 +1,9 @@
 import Field from "../components/Field";
-import Main from "../components/Main";
 
-export default function ResetPassword({ menuStatus }) {
+export default function ResetPassword() {
   // TODO: Fix the button element
   return (
-    <Main menuStatus={menuStatus}>
+    <>
       <Field
         field={{
           title: "Email",
@@ -39,6 +38,6 @@ export default function ResetPassword({ menuStatus }) {
           type: "newPassword2",
         }}
       />
-    </Main>
+    </>
   );
 }
