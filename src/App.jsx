@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EmailVerification from "./pages/EmailVerification";
 import ForgotPassword from "./pages/ForgotPassword";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Main from "./components/Main";
 import PageNotFound from "./pages/PageNotFound";
@@ -42,7 +43,9 @@ function App() {
               menuStatus={menuStatus}
               onMenuClick={handleMenuClick}
               onLogout={handleLogout}
-            />
+            >
+              <Home />
+            </Main>
           }
         />
         <Route
