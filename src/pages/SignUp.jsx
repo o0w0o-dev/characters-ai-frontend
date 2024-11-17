@@ -1,6 +1,6 @@
-import Main from "../components/Main";
-import Field from "../components/Field";
 import Button from "../components/Button";
+import Field from "../components/Field";
+import Main from "../components/Main";
 
 export default function SignUp({ menuStatus }) {
   return (

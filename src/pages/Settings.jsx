@@ -1,6 +1,5 @@
-import Main from "../components/Main";
 import Field from "../components/Field";
-import Button from "../components/Button";
+import Main from "../components/Main";
 
 export default function Settings({ menuStatus }) {
   // TODO: Fix the button element
