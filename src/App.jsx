@@ -13,14 +13,18 @@ import { menu } from "./config";
 function App() {
   // Menu's buttons
   const [menuStatus, setMenuStatus] = useState(menu.init);
+  const [loginStatus, setLoginStatus] = useState(false);
+
   console.log(menuStatus);
 
   function handleLogin() {
     setMenuStatus(menu.login);
+    setLoginStatus(true);
   }
 
   function handleLogout() {
     setMenuStatus(menu.init);
+    setLoginStatus(false);
   }
 
   return (
