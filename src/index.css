@@ -44,28 +44,20 @@
   width: 222px;
 }
 
-.menu-block {
-  all: unset;
-  background-color: var(--block);
+.menu-button {
   border-radius: 15px;
-  box-sizing: border-box;
   height: 59px;
   left: 0;
   position: absolute;
-  top: 296px;
   width: 222px;
 }
 
-.menu-selected {
-  all: unset;
+.selected {
   background-color: var(--selected);
-  border-radius: 15px;
-  box-sizing: border-box;
-  height: 59px;
-  left: 0;
-  position: absolute;
-  top: 222px;
-  width: 222px;
+}
+
+.block {
+  background-color: var(--block);
 }
 
 .login {
