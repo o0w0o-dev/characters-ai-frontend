@@ -9,7 +9,10 @@ const menuButtonPaths = [
 ];
 
 // for buttons not in menu
-const buttonPaths = [{ type: "login", path: "/settings" }];
+const buttonPaths = [
+  { type: "login", path: "/settings" },
+  { type: "recovery", path: "/" },
+];
 
 function createMenu(login, selected) {
   return menuButtonPaths.map((path) => ({
