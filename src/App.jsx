@@ -12,13 +12,18 @@ import SignUp from "./pages/SignUp";
 function App() {
   // Menu's buttons
   const [menuStatus, setMenuStatus] = useState([
-    { text: "Home", selected: true, display: true },
-    { text: "Chat", selected: false, display: false },
-    { text: "Characters", selected: false, display: false },
-    { text: "Settings", selected: false, display: false },
-    { text: "Pro", selected: false, display: false },
-    { text: "Login", selected: false, display: true },
-    { text: "Logout", selected: false, display: false },
+    { text: "Home", selected: true, display: true, path: "/" },
+    { text: "Chat", selected: false, display: false, path: "/chat" },
+    {
+      text: "Characters",
+      selected: false,
+      display: false,
+      path: "/characters",
+    },
+    { text: "Settings", selected: false, display: false, path: "/settings" },
+    { text: "Pro", selected: false, display: false, path: "/pro" },
+    { text: "Login", selected: false, display: true, path: "/login" },
+    { text: "Logout", selected: false, display: false, path: "/" },
   ]);
 
   return (
