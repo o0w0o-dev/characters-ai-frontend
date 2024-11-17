@@ -13,6 +13,8 @@ const buttonPaths = [
   { type: "login", path: "/settings" },
   { type: "recovery", path: "/" },
   { type: "signup", path: "/verify" },
+  { type: "verifyBack", path: "/signup" },
+  { type: "verifyContinue", path: "/" },
 ];
 
 function createMenu(login, selected) {
