@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Menu({ menuStatus, onMenuClick }) {
+export default function Menu({ menuStatus, onMenuClick, onLogout }) {
   const navigate = useNavigate();
   const displayButton = menuStatus.filter((button) => button.display === true);
 
+  // menu button's actions
   function onClick(elementText, path) {
+    if (elementText === "Logout") onLogout();
     onMenuClick(elementText);
     navigate(path);
   }

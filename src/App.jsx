@@ -38,13 +38,21 @@ function App() {
         <Route
           path="/"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick} />
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            />
           }
         />
         <Route
           path="/login"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            >
               <Login onLogin={handleLogin} />
             </Main>
           }
@@ -52,7 +60,11 @@ function App() {
         <Route
           path="/signup"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            >
               <SignUp />
             </Main>
           }
@@ -61,7 +73,11 @@ function App() {
         <Route
           path="/forgot"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            >
               <ForgotPassword />
             </Main>
           }
@@ -69,7 +85,11 @@ function App() {
         <Route
           path="/verify"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            >
               <EmailVerification />
             </Main>
           }
@@ -77,7 +97,11 @@ function App() {
         <Route
           path="/settings"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            >
               <Settings />
             </Main>
           }
@@ -85,7 +109,11 @@ function App() {
         <Route
           path="/reset"
           element={
-            <Main menuStatus={menuStatus} onMenuClick={handleMenuClick}>
+            <Main
+              menuStatus={menuStatus}
+              onMenuClick={handleMenuClick}
+              onLogout={handleLogout}
+            >
               <ResetPassword />
             </Main>
           }
