@@ -20,6 +20,10 @@ export default function Button({ button }) {
       div: "button-verify-continue",
       body: "button-verify",
     },
+    reset: {
+      div: "reset-1",
+      body: "button-verify",
+    },
   };
 
   const style = styles[button.type];
@@ -32,9 +36,3 @@ export default function Button({ button }) {
     </button>
   );
 }
-
-<button className="button-20">
-  <div className="button-21" />
-
-  <div className="home-6">Recovery</div>
-</button>;

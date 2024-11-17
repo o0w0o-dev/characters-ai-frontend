@@ -359,3 +359,30 @@
   top: 169px;
   white-space: nowrap;
 }
+
+.reset-1 {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 316px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 296px;
+  width: 222px;
+}
+
+.text-reset {
+  color: var(--text);
+  font-family: var(--text-24-font-family);
+  font-size: var(--text-24-font-size);
+  font-style: var(--text-24-font-style);
+  font-weight: var(--text-24-font-weight);
+  left: 316px;
+  letter-spacing: var(--text-24-letter-spacing);
+  line-height: var(--text-24-line-height);
+  position: absolute;
+  top: 254px;
+  white-space: nowrap;
+}

@@ -20,6 +20,11 @@ export default function Field({ field }) {
       title: "email-title-text-24",
       text: "email-text-24-block",
     },
+    emailSettings: {
+      div: "field-email-recovery",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
   };
 
   const style = styles[field.type];
