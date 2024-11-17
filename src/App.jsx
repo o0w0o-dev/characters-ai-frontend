@@ -6,6 +6,7 @@ import SignUp from "./pages/SignUp";
 import EmailVerification from "./pages/EmailVerification";
 import PageNotFound from "./pages/PageNotFound";
 import ForgotPassword from "./pages/ForgotPassword";
+import Settings from "./pages/Settings";
 
 function App() {
   // Menu's buttons
@@ -33,6 +34,10 @@ function App() {
         <Route
           path="/verify"
           element={<EmailVerification menuStatus={menuStatus} />}
+        />
+        <Route
+          path="/settings"
+          element={<Settings menuStatus={menuStatus} />}
         />
         <Route path="*" element={<PageNotFound menuStatus={menuStatus} />} />
       </Routes>
