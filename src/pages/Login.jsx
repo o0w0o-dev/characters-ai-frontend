@@ -13,7 +13,10 @@ export default function Login({ onLogin }) {
         >
           recovery password
         </div>
-        <p className="don-t-have-an-account">
+        <p
+          className="don-t-have-an-account"
+          onClick={() => navigate("/signup")}
+        >
           Don't have an account yet? Sign Up
         </p>
 
