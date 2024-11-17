@@ -6,8 +6,12 @@ export default function Menu({ menuStatus, onMenuClick, onLogout }) {
 
   // menu button's actions
   function onClick(elementText, path) {
-    if (elementText === "Logout") onLogout();
-    onMenuClick(elementText);
+    if (elementText === "Logout") {
+      onLogout();
+    } else {
+      onMenuClick(elementText);
+    }
+
     navigate(path);
   }
 
