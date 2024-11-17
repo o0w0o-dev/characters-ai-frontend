@@ -1,7 +1,7 @@
 import Field from "../components/Field";
 
+// TODO: Fix the button element
 export default function ResetPassword() {
-  // TODO: Fix the button element
   return (
     <>
       <Field

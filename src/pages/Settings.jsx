@@ -1,7 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import Field from "../components/Field";
 
+// TODO: Fix the button element
 export default function Settings() {
-  // TODO: Fix the button element
+  const navigate = useNavigate();
   return (
     <>
       <Field
@@ -12,7 +14,7 @@ export default function Settings() {
         }}
       />
 
-      <div className="reset-1">
+      <div className="reset-1" onClick={() => navigate("/reset")}>
         <div className="button-verify" />
 
         <div className="text-wrapper-16">Reset</div>
