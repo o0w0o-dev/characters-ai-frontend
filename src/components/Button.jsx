@@ -35,11 +35,16 @@ export default function Button({ button, onLogin }) {
     },
   };
 
+  function onClick(e) {
+    if (button.type === "login") onLogin();
+    const path = buttonPaths.find((path) => path.type === button.type)?.path;
+    navigate(path);
+  }
+
   const style = styles[button.type];
-  const path = buttonPaths.find((path) => path.type === button.type)?.path;
 
   return (
-    <button className={style.div} onClick={() => navigate(path)}>
+    <button className={style.div} onClick={onClick}>
       <div className={style.body} />
 
       <div className="text-wrapper-16">{button.text}</div>
