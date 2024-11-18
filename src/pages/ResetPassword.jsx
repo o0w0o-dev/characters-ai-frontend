@@ -1,7 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import Field from "../components/Field";
 
-// TODO: Fix the button element
-export default function ResetPassword() {
+// TODO: Fix the button element, hardcoded navigate path
+export default function ResetPassword({ onLogout }) {
+  const navigate = useNavigate();
+
+  function onClick() {
+    onLogout();
+    navigate("/");
+  }
   return (
     <>
       <Field
@@ -12,7 +19,7 @@ export default function ResetPassword() {
         }}
       />
 
-      <div className="reset-2">
+      <div className="reset-2" onClick={onClick}>
         <div className="button-verify" />
 
         <div className="text-wrapper-16">Reset</div>

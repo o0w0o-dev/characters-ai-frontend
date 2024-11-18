@@ -11,7 +11,7 @@ const menuButtonPaths = [
 // for buttons not in menu
 const buttonPaths = [
   { type: "login", path: "/settings" },
-  { type: "recovery", path: "/" },
+  { type: "recovery", path: "/login" },
   { type: "signup", path: "/verify" },
   { type: "verifyBack", path: "/signup" },
   { type: "verifyContinue", path: "/" },
