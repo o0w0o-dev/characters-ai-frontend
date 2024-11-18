@@ -93,7 +93,7 @@ function App() {
               onMenuClick={handleMenuClick}
               onLogout={handleLogout}
             >
-              <EmailVerification />
+              <EmailVerification onLogin={handleLogin} />
             </Main>
           }
         />

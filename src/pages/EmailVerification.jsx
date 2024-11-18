@@ -1,7 +1,7 @@
 import Button from "../components/Button";
 import Field from "../components/Field";
 
-export default function EmailVerification() {
+export default function EmailVerification({ onLogin }) {
   return (
     <>
       <Field
@@ -12,7 +12,10 @@ export default function EmailVerification() {
         }}
       />
       <Button button={{ type: "verifyBack", text: "Back" }} />
-      <Button button={{ type: "verifyContinue", text: "Continue" }} />
+      <Button
+        button={{ type: "verifyContinue", text: "Continue" }}
+        onLogin={onLogin}
+      />
 
       <div className="text-resend">Resend the verify code</div>
 
