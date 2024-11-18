@@ -1,3 +1,6 @@
+import { useState } from "react";
+
+// TODO: move style to index.css
 export default function Field({ field }) {
   const styles = {
     loginEmail: {
@@ -48,10 +51,38 @@ export default function Field({ field }) {
   };
 
   const style = styles[field.type];
+  const isPassword = field.type.toLowerCase().includes("password");
+
+  const [inputValue, setInputValue] = useState(field.text);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const toggleEdit = () => {
+    setIsEditing(!isEditing);
+  };
+
   return (
-    <div className={style.div}>
-      <div className={style.text}>{field.text}</div>
+    <div className={style.div} onClick={() => setIsEditing(true)}>
       <div className={style.title}>{field.title}</div>
+
+      {isEditing ? (
+        <input
+          type={isPassword ? "password" : "text"}
+          value={inputValue}
+          placeholder={field.text}
+          onChange={handleChange}
+          // onBlur={toggleEdit}
+          className={style.text}
+          style={{ border: "none", background: "transparent", outline: 0 }}
+        />
+      ) : (
+        <div className={style.text} onClick={toggleEdit}>
+          {isPassword ? "●".repeat(inputValue.length) : inputValue}
+        </div>
+      )}
     </div>
   );
 }
