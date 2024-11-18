@@ -117,7 +117,7 @@ function App() {
               onMenuClick={handleMenuClick}
               onLogout={handleLogout}
             >
-              <ResetPassword />
+              <ResetPassword onLogout={handleLogout} />
             </Main>
           }
         />
