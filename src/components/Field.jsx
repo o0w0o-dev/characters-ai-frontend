@@ -51,6 +51,7 @@ export default function Field({ field }) {
   };
 
   const style = styles[field.type];
+  const isPassword = field.type.toLowerCase().includes("password");
 
   const [inputValue, setInputValue] = useState(field.text);
   const [isEditing, setIsEditing] = useState(false);
@@ -69,9 +70,9 @@ export default function Field({ field }) {
 
       {isEditing ? (
         <input
-          type="text"
+          type={isPassword ? "password" : "text"}
           value={inputValue}
-          placeholder="user@example.com"
+          placeholder={field.text}
           onChange={handleChange}
           onBlur={toggleEdit}
           className={style.text}
@@ -79,7 +80,7 @@ export default function Field({ field }) {
         />
       ) : (
         <div className={style.text} onClick={toggleEdit}>
-          {inputValue}
+          {isPassword ? "●".repeat(inputValue.length) : inputValue}
         </div>
       )}
     </div>
