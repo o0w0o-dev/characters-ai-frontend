@@ -74,7 +74,7 @@ export default function Field({ field }) {
           value={inputValue}
           placeholder={field.text}
           onChange={handleChange}
-          onBlur={toggleEdit}
+          // onBlur={toggleEdit}
           className={style.text}
           style={{ border: "none", background: "transparent", outline: 0 }}
         />
