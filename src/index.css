@@ -74,11 +74,13 @@
   font-size: var(--text-24-font-size);
   font-style: var(--text-24-font-style);
   font-weight: var(--text-24-font-weight);
-  left: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
   letter-spacing: var(--text-24-letter-spacing);
   line-height: var(--text-24-line-height);
-  position: absolute;
-  top: 15px;
   white-space: nowrap;
 }
 
