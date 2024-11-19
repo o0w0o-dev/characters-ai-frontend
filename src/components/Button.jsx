@@ -44,7 +44,7 @@ export default function Button({ button }) {
   };
 
   // buttons that not in menu
-  function handleOnClick() {
+  function handleClick() {
     console.log(e.target.parentNode.id);
     if (button.id === "loginBtn") onLogin();
     if (button.id === "verifyContinueBtn") onLogin();
@@ -55,7 +55,7 @@ export default function Button({ button }) {
   const style = styles[button.id];
 
   return (
-    <button id={button.id} className={style.div} onClick={handleOnClick}>
+    <button id={button.id} className={style.div} onClick={handleClick}>
       <div className={style.body} />
 
       <div className="text-wrapper-16" id={button.id}>
