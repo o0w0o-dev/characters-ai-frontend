@@ -1,33 +1,33 @@
-const menuButtonPaths = [
-  { type: "Home", path: "/" },
-  { type: "Chat", path: "/chat" },
-  { type: "Characters", path: "/characters" },
-  { type: "Settings", path: "/settings" },
-  { type: "Pro", path: "/pro" },
-  { type: "Login", path: "/login" },
-  { type: "Logout", path: "/" },
+const menuButtons = [
+  { id: "Home", path: "/" },
+  { id: "Chat", path: "/chat" },
+  { id: "Characters", path: "/characters" },
+  { id: "Settings", path: "/settings" },
+  { id: "Pro", path: "/pro" },
+  { id: "Login", path: "/login" },
+  { id: "Logout", path: "/" },
 ];
 
 // for buttons not in menu
-const buttonPaths = [
-  { type: "login", path: "/settings" },
-  { type: "recovery", path: "/login" },
-  { type: "signup", path: "/verify" },
-  { type: "verifyBack", path: "/signup" },
-  { type: "verifyContinue", path: "/" },
+const buttonRedirect = [
+  { id: "login", path: "/settings" },
+  { id: "recovery", path: "/login" },
+  { id: "signup", path: "/verify" },
+  { id: "verifyBack", path: "/signup" },
+  { id: "verifyContinue", path: "/" },
 ];
 
-function createMenu(login, selected) {
-  return menuButtonPaths.map((path) => ({
-    text: path.type,
-    selected: path.type === selected,
-    display: login
-      ? path.type !== "Login"
-      : path.type === "Home" || path.type === "Login"
+function updateMenu(isLogin, clickedButton) {
+  return menuButtons.map((button) => ({
+    text: button.id,
+    selected: button.id === clickedButton,
+    display: isLogin
+      ? button.id !== "Login"
+      : button.id === "Home" || button.id === "Login"
       ? true
       : false,
-    path: path.path,
+    path: button.path,
   }));
 }
 
-export { createMenu, menuButtonPaths, buttonPaths };
+export { updateMenu, buttonRedirect };
