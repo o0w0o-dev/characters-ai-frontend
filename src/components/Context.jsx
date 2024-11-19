@@ -1,28 +1,30 @@
 import { createContext, useContext, useState, useMemo } from "react";
-import { createMenu } from "../config";
+import { updateMenu } from "../config";
 
 const Context = createContext();
 
 function Provider({ children }) {
   // Menu's buttons
   const [loginStatus, setLoginStatus] = useState(false);
-  const [menuStatus, setMenuStatus] = useState(createMenu(loginStatus, "Home"));
+  const [menuStatus, setMenuStatus] = useState(updateMenu(loginStatus, "Home")); // set path to homepage
 
   console.log(menuStatus);
   console.log(loginStatus);
 
   function handleMenuClick(elementText) {
-    setMenuStatus(createMenu(loginStatus, elementText));
+    setMenuStatus(updateMenu(loginStatus, elementText));
   }
 
   function handleLogin() {
-    setLoginStatus(true);
-    setMenuStatus(createMenu(true, "Settings"));
+    const [isLogin, clickedButton] = [true, "Settings"];
+    setLoginStatus(isLogin);
+    setMenuStatus(updateMenu(isLogin, clickedButton));
   }
 
   function handleLogout() {
-    setLoginStatus(false);
-    setMenuStatus(createMenu(false, "Home"));
+    const [isLogin, clickedButton] = [false, "Home"];
+    setLoginStatus(isLogin);
+    setMenuStatus(updateMenu(isLogin, clickedButton));
   }
 
   const value = useMemo(() => {

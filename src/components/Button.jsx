@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "./Context";
-import { buttonPaths } from "../config";
+import { buttonRedirect } from "../config";
 
 export default function Button({ button }) {
   const navigate = useNavigate();
@@ -43,13 +43,13 @@ export default function Button({ button }) {
 
   // buttons that not in menu
   function onClick() {
-    if (button.type === "login") onLogin();
-    if (button.type === "verifyContinue") onLogin();
-    const path = buttonPaths.find((path) => path.type === button.type)?.path;
+    if (button.id === "login") onLogin();
+    if (button.id === "verifyContinue") onLogin();
+    const path = buttonRedirect.find((path) => path.id === button.id)?.path;
     navigate(path);
   }
 
-  const style = styles[button.type];
+  const style = styles[button.id];
 
   return (
     <button className={style.div} onClick={onClick}>

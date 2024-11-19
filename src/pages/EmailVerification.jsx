@@ -11,8 +11,8 @@ export default function EmailVerification() {
           type: "emailVerification",
         }}
       />
-      <Button button={{ type: "verifyBack", text: "Back" }} />
-      <Button button={{ type: "verifyContinue", text: "Continue" }} />
+      <Button button={{ id: "verifyBack", text: "Back" }} />
+      <Button button={{ id: "verifyContinue", text: "Continue" }} />
 
       <div className="text-resend">Resend the verify code</div>
 
