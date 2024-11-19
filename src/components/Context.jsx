@@ -5,37 +5,37 @@ const Context = createContext();
 
 function Provider({ children }) {
   // Menu's buttons
-  const [loginStatus, setLoginStatus] = useState(false);
-  const [menuStatus, setMenuStatus] = useState(updateMenu(loginStatus, "Home")); // set path to homepage
+  const [isLogin, setIsLogin] = useState(false);
+  const [menu, setMenu] = useState(updateMenu(isLogin, "Home")); // set path to homepage
 
-  console.log(menuStatus);
-  console.log(loginStatus);
+  console.log(menu);
+  console.log(isLogin);
 
   function handleMenuClick(elementText) {
-    setMenuStatus(updateMenu(loginStatus, elementText));
+    setMenu(updateMenu(isLogin, elementText));
   }
 
   function handleLogin() {
     const [isLogin, clickedButton] = [true, "Settings"];
-    setLoginStatus(isLogin);
-    setMenuStatus(updateMenu(isLogin, clickedButton));
+    setIsLogin(isLogin);
+    setMenu(updateMenu(isLogin, clickedButton));
   }
 
   function handleLogout() {
     const [isLogin, clickedButton] = [false, "Home"];
-    setLoginStatus(isLogin);
-    setMenuStatus(updateMenu(isLogin, clickedButton));
+    setIsLogin(isLogin);
+    setMenu(updateMenu(isLogin, clickedButton));
   }
 
   const value = useMemo(() => {
     return {
-      loginStatus,
-      menuStatus,
+      isLogin,
+      menu,
       onLogin: handleLogin,
       onLogout: handleLogout,
       onMenuClick: handleMenuClick,
     };
-  }, [loginStatus, menuStatus]);
+  }, [isLogin, menu]);
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

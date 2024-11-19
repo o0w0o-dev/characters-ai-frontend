@@ -1,6 +1,6 @@
 import Menu from "./Menu";
 
-export default function Main({ children, menuStatus, onMenuClick, onLogout }) {
+export default function Main({ children }) {
   return (
     <div className="main">
       <div className="main-wrapper-2">
