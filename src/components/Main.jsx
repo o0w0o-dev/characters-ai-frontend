@@ -8,11 +8,7 @@ export default function Main({ children, menuStatus, onMenuClick, onLogout }) {
           <div className="div-3">
             <div className="div-4" />
 
-            <Menu
-              menuStatus={menuStatus}
-              onMenuClick={onMenuClick}
-              onLogout={onLogout}
-            />
+            <Menu />
           </div>
           {children}
         </div>

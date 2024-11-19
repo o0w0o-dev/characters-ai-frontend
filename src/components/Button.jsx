@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { useMyContext } from "./Context";
 import { buttonPaths } from "../config";
 
-export default function Button({ button, onLogin }) {
+export default function Button({ button }) {
   const navigate = useNavigate();
+  const { onLogin } = useMyContext();
 
   const styles = {
     login: {
