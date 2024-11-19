@@ -1,6 +1,8 @@
+import { useMyContext } from "./Context";
 import { useNavigate } from "react-router-dom";
 
-export default function Menu({ menuStatus, onMenuClick, onLogout }) {
+export default function Menu() {
+  const { menuStatus, onMenuClick, onLogout } = useMyContext();
   const navigate = useNavigate();
   const displayButton = menuStatus.filter((button) => button.display === true);
 

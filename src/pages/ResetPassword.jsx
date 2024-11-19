@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useMyContext } from "../components/Context";
 import Field from "../components/Field";
 
 // TODO: Fix the button element, hardcoded navigate path
-export default function ResetPassword({ onLogout }) {
+export default function ResetPassword() {
   const navigate = useNavigate();
+  const { onLogout } = useMyContext();
 
   function onClick() {
     onLogout();
