@@ -61,7 +61,9 @@ export default function Field({ field }) {
   };
 
   const style = styles[field.id];
+  const notEditableIDs = ["emailReset", "emailSettings"];
   const isPassword = field.id.toLowerCase().includes("password");
+  const isEditable = !notEditableIDs.includes(field.id);
 
   const [inputValue, setInputValue] = useState(field.text);
   const [isEditing, setIsEditing] = useState(false);
@@ -78,7 +80,7 @@ export default function Field({ field }) {
     <div className={style.div} onClick={() => setIsEditing(true)}>
       <div className={style.title}>{field.title}</div>
 
-      {isEditing ? (
+      {isEditing && isEditable ? (
         <input
           type={isPassword ? "password" : "text"}
           value={inputValue}
