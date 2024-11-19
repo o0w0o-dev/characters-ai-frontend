@@ -11,9 +11,9 @@ export default function SignUp() {
           Already have an account? Login
         </p>
 
-        <Button button={{ id: "signup", text: "Sign Up" }} />
+        <Button button={{ id: "signupBtn", text: "Sign Up" }} />
         <Button
-          button={{ id: "loginWithGoogle", text: "Sign Up with Google" }}
+          button={{ id: "continueWithGoogle", text: "Sign Up with Google" }}
         />
 
         <Field

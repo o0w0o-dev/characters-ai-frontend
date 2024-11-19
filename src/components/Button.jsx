@@ -7,35 +7,37 @@ export default function Button({ button }) {
   const { onLogin } = useMyContext();
 
   const styles = {
-    login: {
+    loginBtn: {
       div: "button-login",
       body: "button-size-4",
     },
-    loginWithGoogle: {
-      div: "button-loginWithGoogle",
+    continueWithGoogle: {
+      div: "button-continueWithGoogle",
       body: "button-size-4",
     },
-    signup: {
+    signupBtn: {
       div: "button-login",
       body: "button-size-4",
     },
-    recovery: {
+    recoveryBtn: {
       div: "button-recovery-1",
       body: "button-recovery-2",
     },
-    verifyBack: {
+    verifyBackBtn: {
       div: "button-verify-back",
       body: "button-verify",
     },
-    verifyContinue: {
+    verifyContinueBtn: {
       div: "button-verify-continue",
       body: "button-verify",
     },
-    reset: {
+    // TODO: replace div to button
+    resetBtn: {
       div: "reset-1",
       body: "button-verify",
     },
-    reset2: {
+    // TODO: replace div to button
+    resetBtn2: {
       div: "reset-2",
       body: "button-verify",
     },
@@ -44,7 +46,7 @@ export default function Button({ button }) {
   // buttons that not in menu
   function onClick() {
     if (button.id === "login") onLogin();
-    if (button.id === "verifyContinue") onLogin();
+    if (button.id === "verifyContinueBtn") onLogin();
     const path = buttonRedirect.find((path) => path.id === button.id)?.path;
     navigate(path);
   }
@@ -55,7 +57,9 @@ export default function Button({ button }) {
     <button className={style.div} onClick={onClick}>
       <div className={style.body} />
 
-      <div className="text-wrapper-16">{button.text}</div>
+      <div className="text-wrapper-16" id={button.id}>
+        {button.text}
+      </div>
     </button>
   );
 }

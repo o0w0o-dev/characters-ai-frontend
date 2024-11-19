@@ -20,8 +20,10 @@ export default function Login() {
           Don't have an account yet? Sign Up
         </p>
 
-        <Button button={{ id: "login", text: "Login" }} />
-        <Button button={{ id: "loginWithGoogle", text: "Login with Google" }} />
+        <Button button={{ id: "loginBtn", text: "Login" }} />
+        <Button
+          button={{ id: "continueWithGoogle", text: "Login with Google" }}
+        />
 
         <Field
           field={{

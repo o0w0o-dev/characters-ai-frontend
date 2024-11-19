@@ -4,7 +4,7 @@ import Field from "../components/Field";
 export default function ForgotPassword() {
   return (
     <>
-      <Button button={{ id: "recovery", text: "Recovery" }} />
+      <Button button={{ id: "recoveryBtn", text: "Recovery" }} />
       <Field
         field={{
           title: "Email",

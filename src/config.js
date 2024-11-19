@@ -10,11 +10,11 @@ const menuButtons = [
 
 // for buttons not in menu
 const buttonRedirect = [
-  { id: "login", path: "/settings" },
-  { id: "recovery", path: "/login" },
-  { id: "signup", path: "/verify" },
-  { id: "verifyBack", path: "/signup" },
-  { id: "verifyContinue", path: "/" },
+  { id: "loginBtn", path: "/settings" },
+  { id: "recoveryBtn", path: "/login" },
+  { id: "signupBtn", path: "/verify" },
+  { id: "verifyBackBtn", path: "/signup" },
+  { id: "verifyContinueBtn", path: "/" },
 ];
 
 function updateMenu(isLogin, clickedButton) {
