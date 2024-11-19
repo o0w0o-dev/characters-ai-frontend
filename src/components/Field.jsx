@@ -82,6 +82,7 @@ export default function Field({ field }) {
 
       {isEditing && isEditable ? (
         <input
+          id={field.id}
           type={isPassword ? "password" : "text"}
           value={inputValue}
           placeholder={field.text}
