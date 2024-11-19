@@ -7,7 +7,7 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const { onLogout } = useMyContext();
 
-  function onClick() {
+  function handleOnClick() {
     onLogout();
     navigate("/");
   }
@@ -21,7 +21,7 @@ export default function ResetPassword() {
         }}
       />
 
-      <div className="reset-2" onClick={onClick}>
+      <div className="reset-2" onClick={handleOnClick}>
         <div className="button-verify" />
 
         <div className="text-wrapper-16">Reset</div>

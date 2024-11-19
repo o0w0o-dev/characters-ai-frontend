@@ -44,7 +44,8 @@ export default function Button({ button }) {
   };
 
   // buttons that not in menu
-  function onClick() {
+  function handleOnClick() {
+    console.log(e.target.parentNode.id);
     if (button.id === "loginBtn") onLogin();
     if (button.id === "verifyContinueBtn") onLogin();
     const path = buttonRedirect.find((path) => path.id === button.id)?.path;
@@ -54,7 +55,7 @@ export default function Button({ button }) {
   const style = styles[button.id];
 
   return (
-    <button className={style.div} onClick={onClick}>
+    <button id={button.id} className={style.div} onClick={handleOnClick}>
       <div className={style.body} />
 
       <div className="text-wrapper-16" id={button.id}>
