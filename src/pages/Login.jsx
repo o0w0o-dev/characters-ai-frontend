@@ -27,14 +27,14 @@ export default function Login() {
           field={{
             title: "Password",
             text: "●●●●●●●●",
-            type: "loginPassword",
+            id: "loginPassword",
           }}
         />
         <Field
           field={{
             title: "Email",
             text: "user@example.com",
-            type: "loginEmail",
+            id: "loginEmail",
           }}
         />
       </div>

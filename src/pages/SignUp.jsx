@@ -20,14 +20,14 @@ export default function SignUp() {
           field={{
             title: "Password",
             text: "●●●●●●●●",
-            type: "loginPassword",
+            id: "loginPassword",
           }}
         />
         <Field
           field={{
             title: "Email",
             text: "user@example.com",
-            type: "loginEmail",
+            id: "loginEmail",
           }}
         />
       </div>

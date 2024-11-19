@@ -10,7 +10,7 @@ export default function Settings() {
         field={{
           title: "Email",
           text: "user@example.com",
-          type: "emailSettings",
+          id: "emailSettings",
         }}
       />
 

@@ -8,7 +8,7 @@ export default function EmailVerification() {
         field={{
           title: "Please enter verify code:",
           text: "A1B2C3D4",
-          type: "emailVerification",
+          id: "emailVerification",
         }}
       />
       <Button button={{ id: "verifyBack", text: "Back" }} />

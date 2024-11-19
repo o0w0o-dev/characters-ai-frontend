@@ -9,7 +9,7 @@ export default function ForgotPassword() {
         field={{
           title: "Email",
           text: "user@example.com",
-          type: "emailRecovery",
+          id: "emailRecovery",
         }}
       />
     </>

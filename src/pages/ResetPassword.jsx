@@ -17,7 +17,7 @@ export default function ResetPassword() {
         field={{
           title: "Email",
           text: "user@example.com",
-          type: "emailReset",
+          id: "emailReset",
         }}
       />
 
@@ -30,21 +30,21 @@ export default function ResetPassword() {
         field={{
           title: "Old password",
           text: "●●●●●●●●",
-          type: "oldPassword",
+          id: "oldPassword",
         }}
       />
       <Field
         field={{
           title: "New password",
           text: "●●●●●●●●",
-          type: "newPassword",
+          id: "newPassword",
         }}
       />
       <Field
         field={{
           title: "Re-enter new password",
           text: "●●●●●●●●",
-          type: "newPassword2",
+          id: "newPassword2",
         }}
       />
     </>

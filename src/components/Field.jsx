@@ -50,8 +50,8 @@ export default function Field({ field }) {
     },
   };
 
-  const style = styles[field.type];
-  const isPassword = field.type.toLowerCase().includes("password");
+  const style = styles[field.id];
+  const isPassword = field.id.toLowerCase().includes("password");
 
   const [inputValue, setInputValue] = useState(field.text);
   const [isEditing, setIsEditing] = useState(false);
