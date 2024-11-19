@@ -45,7 +45,7 @@ export default function Button({ button }) {
 
   // buttons that not in menu
   function onClick() {
-    if (button.id === "login") onLogin();
+    if (button.id === "loginBtn") onLogin();
     if (button.id === "verifyContinueBtn") onLogin();
     const path = buttonRedirect.find((path) => path.id === button.id)?.path;
     navigate(path);
