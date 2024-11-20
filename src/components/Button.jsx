@@ -4,7 +4,7 @@ import { buttonRedirect } from "../config";
 
 export default function Button({ button }) {
   const navigate = useNavigate();
-  const { onLogin } = useMyContext();
+  const { formData, onLogin } = useMyContext();
 
   const styles = {
     loginBtn: {
@@ -43,11 +43,30 @@ export default function Button({ button }) {
     },
   };
 
+  const formButtons = [
+    "loginBtn",
+    "signupBtn",
+    "recoveryBtn",
+    "verifyContinueBtn",
+    "resetBtn2",
+  ];
+
+  const isSubmitButton = formButtons.includes(button.id);
+
   // buttons that not in menu
-  function handleClick() {
+  function handleClick(e) {
+    if (isSubmitButton) {
+      e.preventDefault();
+      const email = formData.loginEmail;
+      const password = formData.loginPassword;
+      console.log({ email, password });
+    }
+    console.log({ isSubmitButton });
     console.log(e.target.parentNode.id);
+
     if (button.id === "loginBtn") onLogin();
     if (button.id === "verifyContinueBtn") onLogin();
+
     const path = buttonRedirect.find((path) => path.id === button.id)?.path;
     navigate(path);
   }
@@ -55,7 +74,12 @@ export default function Button({ button }) {
   const style = styles[button.id];
 
   return (
-    <button id={button.id} className={style.div} onClick={handleClick}>
+    <button
+      id={button.id}
+      type={isSubmitButton ? "submit" : "button"}
+      className={style.div}
+      onClick={handleClick}
+    >
       <div className={style.body} />
 
       <div className="text-wrapper-16" id={button.id}>

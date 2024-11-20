@@ -7,16 +7,9 @@ export default function Login() {
   const navigate = useNavigate();
   const { formData } = useMyContext();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    const email = formData.loginEmail;
-    const password = formData.loginPassword;
-    console.log({ email, password });
-  }
-
   return (
     <>
-      <form className="login" onSubmit={handleSubmit}>
+      <form className="login">
         <div
           className="recovery-password-url"
           onClick={() => navigate("/forgot")}
