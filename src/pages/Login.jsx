@@ -1,12 +1,22 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Field from "../components/Field";
+import { useMyContext } from "../components/Context";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { formData } = useMyContext();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const email = formData.loginEmail;
+    const password = formData.loginPassword;
+    console.log({ email, password });
+  }
+
   return (
     <>
-      <div className="login">
+      <form className="login" onSubmit={handleSubmit}>
         <div
           className="recovery-password-url"
           onClick={() => navigate("/forgot")}
@@ -39,7 +49,7 @@ export default function Login() {
             id: "loginEmail",
           }}
         />
-      </div>
+      </form>
     </>
   );
 }
