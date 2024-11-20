@@ -7,9 +7,11 @@ function Provider({ children }) {
   // Menu's buttons
   const [isLogin, setIsLogin] = useState(false);
   const [menu, setMenu] = useState(updateMenu(isLogin, "Home")); // set path to homepage
+  const [formData, setFormData] = useState({});
 
-  console.log(menu);
-  console.log(isLogin);
+  console.log({ menu });
+  console.log({ isLogin });
+  console.log({ formData });
 
   function handleMenuClick(elementText) {
     setMenu(updateMenu(isLogin, elementText));
