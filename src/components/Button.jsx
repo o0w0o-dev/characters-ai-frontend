@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "./Context";
 import { buttonRedirect } from "../config";
+import { login } from "../services/apiAuth";
 
 export default function Button({ button }) {
   const navigate = useNavigate();
@@ -57,10 +58,14 @@ export default function Button({ button }) {
   function handleClick(e) {
     if (isSubmitButton) {
       e.preventDefault();
+
       const email = formData.loginEmail;
       const password = formData.loginPassword;
-      console.log({ email, password });
+
+      if (!email || !password) return;
+      login({ email, password });
     }
+
     console.log({ isSubmitButton });
     console.log(e.target.parentNode.id);
 
