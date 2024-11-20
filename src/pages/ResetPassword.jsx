@@ -7,7 +7,7 @@ export default function ResetPassword() {
   const navigate = useNavigate();
   const { onLogout } = useMyContext();
 
-  function onClick() {
+  function handleClick() {
     onLogout();
     navigate("/");
   }
@@ -17,11 +17,11 @@ export default function ResetPassword() {
         field={{
           title: "Email",
           text: "user@example.com",
-          type: "emailReset",
+          id: "emailReset",
         }}
       />
 
-      <div className="reset-2" onClick={onClick}>
+      <div className="reset-2" onClick={handleClick}>
         <div className="button-verify" />
 
         <div className="text-wrapper-16">Reset</div>
@@ -30,21 +30,21 @@ export default function ResetPassword() {
         field={{
           title: "Old password",
           text: "●●●●●●●●",
-          type: "oldPassword",
+          id: "oldPassword",
         }}
       />
       <Field
         field={{
           title: "New password",
           text: "●●●●●●●●",
-          type: "newPassword",
+          id: "newPassword",
         }}
       />
       <Field
         field={{
           title: "Re-enter new password",
           text: "●●●●●●●●",
-          type: "newPassword2",
+          id: "newPassword2",
         }}
       />
     </>

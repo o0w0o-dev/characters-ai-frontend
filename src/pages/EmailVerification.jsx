@@ -8,11 +8,11 @@ export default function EmailVerification() {
         field={{
           title: "Please enter verify code:",
           text: "A1B2C3D4",
-          type: "emailVerification",
+          id: "verifyCode",
         }}
       />
-      <Button button={{ type: "verifyBack", text: "Back" }} />
-      <Button button={{ type: "verifyContinue", text: "Continue" }} />
+      <Button button={{ id: "verifyBackBtn", text: "Back" }} />
+      <Button button={{ id: "verifyContinueBtn", text: "Continue" }} />
 
       <div className="text-resend">Resend the verify code</div>
 

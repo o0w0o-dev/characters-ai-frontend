@@ -11,23 +11,23 @@ export default function SignUp() {
           Already have an account? Login
         </p>
 
-        <Button button={{ type: "signup", text: "Sign Up" }} />
+        <Button button={{ id: "signupBtn", text: "Sign Up" }} />
         <Button
-          button={{ type: "loginWithGoogle", text: "Sign Up with Google" }}
+          button={{ id: "continueWithGoogle", text: "Sign Up with Google" }}
         />
 
         <Field
           field={{
             title: "Password",
             text: "●●●●●●●●",
-            type: "loginPassword",
+            id: "signUpPassword",
           }}
         />
         <Field
           field={{
             title: "Email",
             text: "user@example.com",
-            type: "loginEmail",
+            id: "signUpEmail",
           }}
         />
       </div>

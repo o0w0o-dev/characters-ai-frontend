@@ -1,61 +1,95 @@
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "./Context";
-import { buttonPaths } from "../config";
+import { buttonRedirect } from "../config";
+import { login } from "../services/apiAuth";
 
 export default function Button({ button }) {
   const navigate = useNavigate();
-  const { onLogin } = useMyContext();
+  const { formData, onLogin } = useMyContext();
 
   const styles = {
-    login: {
+    loginBtn: {
       div: "button-login",
       body: "button-size-4",
     },
-    loginWithGoogle: {
-      div: "button-loginWithGoogle",
+    continueWithGoogle: {
+      div: "button-continueWithGoogle",
       body: "button-size-4",
     },
-    signup: {
+    signupBtn: {
       div: "button-login",
       body: "button-size-4",
     },
-    recovery: {
+    recoveryBtn: {
       div: "button-recovery-1",
       body: "button-recovery-2",
     },
-    verifyBack: {
+    verifyBackBtn: {
       div: "button-verify-back",
       body: "button-verify",
     },
-    verifyContinue: {
+    verifyContinueBtn: {
       div: "button-verify-continue",
       body: "button-verify",
     },
-    reset: {
+    // TODO: replace div to button
+    resetBtn: {
       div: "reset-1",
       body: "button-verify",
     },
-    reset2: {
+    // TODO: replace div to button
+    resetBtn2: {
       div: "reset-2",
       body: "button-verify",
     },
   };
 
+  const formButtons = [
+    "loginBtn",
+    "signupBtn",
+    "recoveryBtn",
+    "verifyContinueBtn",
+    "resetBtn2",
+  ];
+
+  const isSubmitButton = formButtons.includes(button.id);
+
   // buttons that not in menu
-  function onClick() {
-    if (button.type === "login") onLogin();
-    if (button.type === "verifyContinue") onLogin();
-    const path = buttonPaths.find((path) => path.type === button.type)?.path;
+  function handleClick(e) {
+    if (isSubmitButton) {
+      e.preventDefault();
+
+      const email = formData.loginEmail;
+      const password = formData.loginPassword;
+
+      if (!email || !password) return;
+      login({ email, password });
+    }
+
+    console.log({ isSubmitButton });
+    console.log(e.target.parentNode.id);
+
+    if (button.id === "loginBtn") onLogin();
+    if (button.id === "verifyContinueBtn") onLogin();
+
+    const path = buttonRedirect.find((path) => path.id === button.id)?.path;
     navigate(path);
   }
 
-  const style = styles[button.type];
+  const style = styles[button.id];
 
   return (
-    <button className={style.div} onClick={onClick}>
+    <button
+      id={button.id}
+      type={isSubmitButton ? "submit" : "button"}
+      className={style.div}
+      onClick={handleClick}
+    >
       <div className={style.body} />
 
-      <div className="text-wrapper-16">{button.text}</div>
+      <div className="text-wrapper-16" id={button.id}>
+        {button.text}
+      </div>
     </button>
   );
 }

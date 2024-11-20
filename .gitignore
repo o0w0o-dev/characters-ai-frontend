@@ -1,4 +1,14 @@
+downloads/
+node_modules/
+venv/
+*.csv
+*.json
+*.log
 *.png
+.DS_Store
+.env
+secrets.env
+
 
 # Logs
 logs

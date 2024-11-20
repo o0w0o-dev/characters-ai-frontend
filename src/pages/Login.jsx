@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Field from "../components/Field";
+import { useMyContext } from "../components/Context";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { formData } = useMyContext();
+
   return (
     <>
-      <div className="login">
+      <form className="login">
         <div
           className="recovery-password-url"
           onClick={() => navigate("/forgot")}
@@ -20,26 +23,26 @@ export default function Login() {
           Don't have an account yet? Sign Up
         </p>
 
-        <Button button={{ type: "login", text: "Login" }} />
+        <Button button={{ id: "loginBtn", text: "Login" }} />
         <Button
-          button={{ type: "loginWithGoogle", text: "Login with Google" }}
+          button={{ id: "continueWithGoogle", text: "Login with Google" }}
         />
 
         <Field
           field={{
             title: "Password",
             text: "●●●●●●●●",
-            type: "loginPassword",
+            id: "loginPassword",
           }}
         />
         <Field
           field={{
             title: "Email",
             text: "user@example.com",
-            type: "loginEmail",
+            id: "loginEmail",
           }}
         />
-      </div>
+      </form>
     </>
   );
 }
