@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useMyContext } from "./Context";
 
 // TODO: move style to index.css
 export default function Field({ field }) {
+  const { formData, setFormData } = useMyContext();
+
   const styles = {
     loginEmail: {
       div: "field-email",
@@ -65,11 +68,10 @@ export default function Field({ field }) {
   const isPassword = field.id.toLowerCase().includes("password");
   const isEditable = !notEditableIDs.includes(field.id);
 
-  const [inputValue, setInputValue] = useState(field.text);
   const [isEditing, setIsEditing] = useState(false);
 
   const handleChange = (e) => {
-    setInputValue(e.target.value);
+    setFormData((data) => ({ ...data, [field.id]: e.target.value }));
   };
 
   const toggleEdit = () => {
@@ -84,7 +86,7 @@ export default function Field({ field }) {
         <input
           id={field.id}
           type={isPassword ? "password" : "text"}
-          value={inputValue}
+          value={formData?.[field.id] || ""}
           placeholder={field.text}
           onChange={handleChange}
           // onBlur={toggleEdit}
@@ -93,7 +95,9 @@ export default function Field({ field }) {
         />
       ) : (
         <div className={style.text} onClick={toggleEdit}>
-          {isPassword ? "●".repeat(inputValue.length) : inputValue}
+          {isPassword
+            ? "●".repeat(formData?.[field.id]?.length || 0)
+            : formData?.[field.id] || ""}
         </div>
       )}
     </div>
