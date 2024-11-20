@@ -29,15 +29,15 @@ function Provider({ children }) {
     setMenu(updateMenu(isLogin, clickedButton));
   }
 
-  const value = useMemo(() => {
-    return {
-      isLogin,
-      menu,
-      onLogin: handleLogin,
-      onLogout: handleLogout,
-      onMenuClick: handleMenuClick,
-    };
-  }, [isLogin, menu]);
+  const value = {
+    isLogin,
+    menu,
+    formData,
+    setFormData,
+    onLogin: handleLogin,
+    onLogout: handleLogout,
+    onMenuClick: handleMenuClick,
+  };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
