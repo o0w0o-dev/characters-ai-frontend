@@ -11,7 +11,7 @@ export default function Button({ button }) {
   }
 
   const navigate = useNavigate();
-  const { formData, onLogin, setErrorMessages } = useMyContext();
+  const { formData, setFormData, onLogin, setErrorMessages } = useMyContext();
 
   const styles = {
     loginBtn: {
@@ -62,6 +62,24 @@ export default function Button({ button }) {
 
   // buttons that not in menu
   async function handleClick(e) {
+    function clearFields() {
+      const fieldsToClean = [
+        "loginPassword",
+        "signUpPassword",
+        "oldPassword",
+        "newPassword",
+        "newPassword2",
+        "verifyCode",
+      ];
+
+      const obj = Object.fromEntries(fieldsToClean.map((key) => [key, ""]));
+
+      setFormData((data) => ({
+        ...data,
+        ...obj,
+      }));
+    }
+
     console.log({ clicked: e.target.parentNode.id });
 
     if (isSubmitButton && button.id === "loginBtn") {
@@ -79,7 +97,10 @@ export default function Button({ button }) {
       }
 
       const success = await onLogin({ email, password });
-      if (success) redirect(button);
+      if (success) {
+        redirect(button);
+        clearFields();
+      }
     }
 
     if (isSubmitButton && button.id === "verifyContinueBtn") {
