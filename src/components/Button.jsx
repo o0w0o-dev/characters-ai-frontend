@@ -11,7 +11,7 @@ export default function Button({ button }) {
   }
 
   const navigate = useNavigate();
-  const { formData, onLogin } = useMyContext();
+  const { formData, onLogin, setErrorMessages } = useMyContext();
 
   const styles = {
     loginBtn: {
@@ -70,7 +70,13 @@ export default function Button({ button }) {
       const email = formData.loginEmail;
       const password = formData.loginPassword;
 
-      if (!email || !password) return;
+      if (!email || !password) {
+        setErrorMessages((errorMessages) => ({
+          ...errorMessages,
+          login: "Invalid email or password",
+        }));
+        return;
+      }
 
       const success = await onLogin({ email, password });
       if (success) redirect(button);

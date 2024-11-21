@@ -30,7 +30,10 @@ function Provider({ children }) {
 
       setErrorMessages((errorMessages) => ({
         ...errorMessages,
-        login: error.message,
+        login:
+          error.message === "Invalid login credentials"
+            ? "Invalid email or password"
+            : error.message,
       }));
 
       return isLogin;
@@ -40,6 +43,10 @@ function Provider({ children }) {
       isLogin = true;
       setIsLogin(isLogin);
       setMenu(updateMenu(isLogin, "Settings"));
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        login: undefined,
+      }));
 
       return isLogin;
     }
@@ -59,6 +66,7 @@ function Provider({ children }) {
     formData,
     setFormData,
     errorMessages,
+    setErrorMessages,
     onLogin: handleLogin,
     onLogout: handleLogout,
     onMenuClick: handleMenuClick,
