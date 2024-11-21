@@ -10,10 +10,12 @@ function Provider({ children }) {
   const [formData, setFormData] = useState({});
   const [errorMessages, setErrorMessages] = useState({});
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const fetchCurrentUser = async () => {
       const user = await getCurrentUser();
+      setUser(user);
       setIsLogin(!!user);
       setMenu(updateMenu(!!user, "Home"));
       setLoading(false);
@@ -44,6 +46,7 @@ function Provider({ children }) {
     }
 
     if (data?.user?.aud === "authenticated") {
+      setUser(data.user);
       setIsLogin(true);
       setMenu(updateMenu(true, "Home"));
       setErrorMessages((errorMessages) => ({
@@ -64,6 +67,7 @@ function Provider({ children }) {
   }
 
   const value = {
+    user,
     isLogin,
     menu,
     formData,
@@ -78,6 +82,7 @@ function Provider({ children }) {
 
   console.log({ menu });
   console.log({ isLogin });
+  console.log({ user });
   console.log({ formData });
   console.log({ errorMessages });
 
