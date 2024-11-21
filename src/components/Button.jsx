@@ -90,13 +90,14 @@ export default function Button({ button }) {
       const email = formData.loginEmail;
       const password = formData.loginPassword;
 
-      if (!email || !password) {
-        setErrorMessages((errorMessages) => ({
-          ...errorMessages,
-          login: "Invalid email or password",
-        }));
-        return;
-      }
+      // TODO: uncomment the lines
+      // if (!email || !password) {
+      //   setErrorMessages((errorMessages) => ({
+      //     ...errorMessages,
+      //     login: "Invalid email or password",
+      //   }));
+      //   return;
+      // }
 
       const success = await onLogin({ email, password });
       if (success) {
