@@ -43,6 +43,11 @@ function Provider({ children }) {
       isLogin = true;
       setIsLogin(isLogin);
       setMenu(updateMenu(isLogin, "Settings"));
+      setFormData((formData) => ({
+        ...formData,
+        emailSettings: email,
+        emailReset: email,
+      }));
       setErrorMessages((errorMessages) => ({
         ...errorMessages,
         login: undefined,
