@@ -18,7 +18,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Main protectedRoute={false}>
+              <Main protectedRoute={false} selected={"Home"}>
                 <Home />
               </Main>
             }
@@ -26,7 +26,7 @@ function App() {
           <Route
             path="/login"
             element={
-              <Main protectedRoute={false}>
+              <Main protectedRoute={false} selected={"Login"}>
                 <Login />
               </Main>
             }
@@ -34,7 +34,7 @@ function App() {
           <Route
             path="/signup"
             element={
-              <Main protectedRoute={false}>
+              <Main protectedRoute={false} selected={"Login"}>
                 <SignUp />
               </Main>
             }
@@ -43,7 +43,7 @@ function App() {
           <Route
             path="/forgot"
             element={
-              <Main protectedRoute={false}>
+              <Main protectedRoute={false} selected={"Login"}>
                 <ForgotPassword />
               </Main>
             }
@@ -51,7 +51,7 @@ function App() {
           <Route
             path="/verify"
             element={
-              <Main protectedRoute={false}>
+              <Main protectedRoute={false} selected={"Login"}>
                 <EmailVerification />
               </Main>
             }
@@ -59,7 +59,7 @@ function App() {
           <Route
             path="/settings"
             element={
-              <Main protectedRoute={true}>
+              <Main protectedRoute={true} selected={"Settings"}>
                 <Settings />
               </Main>
             }
@@ -67,7 +67,7 @@ function App() {
           <Route
             path="/reset"
             element={
-              <Main protectedRoute={true}>
+              <Main protectedRoute={true} selected={"Settings"}>
                 <ResetPassword />
               </Main>
             }
