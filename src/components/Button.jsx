@@ -4,6 +4,7 @@ import { buttonRedirect } from "../config";
 
 export default function Button({ button }) {
   function redirect(clickedButton) {
+    if (clickedButton.id === "resetBtn2") onLogout();
     const path = buttonRedirect.find(
       (path) => path.id === clickedButton.id
     )?.path;
@@ -11,7 +12,8 @@ export default function Button({ button }) {
   }
 
   const navigate = useNavigate();
-  const { formData, setFormData, onLogin, setErrorMessages } = useMyContext();
+  const { formData, setFormData, onLogin, onLogout, setErrorMessages } =
+    useMyContext();
 
   const styles = {
     loginBtn: {
