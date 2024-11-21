@@ -17,7 +17,7 @@ function Provider({ children }) {
       const user = await getCurrentUser();
       setUser(user);
       setIsLogin(!!user);
-      setMenu(updateMenu(!!user, "Home"));
+      // setMenu(updateMenu(!!user, "Home"));
       setLoading(false);
     };
 
@@ -64,12 +64,14 @@ function Provider({ children }) {
     localStorage.clear();
     setIsLogin(false);
     setMenu(updateMenu(false, "Home"));
+    window.location.reload(false);
   }
 
   const value = {
     user,
     isLogin,
     menu,
+    setMenu,
     formData,
     setFormData,
     errorMessages,
