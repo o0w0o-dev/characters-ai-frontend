@@ -88,6 +88,7 @@ export default function Field({ field }) {
           type={isPassword ? "password" : "text"}
           value={formData?.[field.id] || ""}
           placeholder={field.text}
+          autoFocus
           onChange={handleChange}
           // onBlur={toggleEdit}
           className={style.text}
