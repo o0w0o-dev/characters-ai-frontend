@@ -494,3 +494,15 @@
   position: absolute !important;
   top: 254px !important;
 }
+
+.login-fail-message {
+  color: var(--red);
+  font-family: "JejuGothic-Regular", Helvetica;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}

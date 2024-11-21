@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { login } from "../services/apiAuth";
 import { updateMenu } from "../config";
 
 const Context = createContext();
@@ -8,19 +9,42 @@ function Provider({ children }) {
   const [isLogin, setIsLogin] = useState(false);
   const [menu, setMenu] = useState(updateMenu(isLogin, "Home")); // set path to homepage
   const [formData, setFormData] = useState({});
+  const [errorMessages, setErrorMessages] = useState({});
 
   console.log({ menu });
   console.log({ isLogin });
   console.log({ formData });
+  console.log({ errorMessages });
 
   function handleMenuClick(elementText) {
     setMenu(updateMenu(isLogin, elementText));
   }
 
-  function handleLogin() {
-    const [isLogin, clickedButton] = [true, "Settings"];
-    setIsLogin(isLogin);
-    setMenu(updateMenu(isLogin, clickedButton));
+  async function handleLogin({ email, password }) {
+    let isLogin;
+
+    const { data, error } = await login({ email, password });
+
+    if (error) {
+      isLogin = false;
+
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        login: error.message,
+      }));
+
+      return isLogin;
+    }
+
+    if (data?.user?.aud === "authenticated") {
+      isLogin = true;
+      setIsLogin(isLogin);
+      setMenu(updateMenu(isLogin, "Settings"));
+
+      return isLogin;
+    }
+
+    return isLogin;
   }
 
   function handleLogout() {
@@ -34,6 +58,7 @@ function Provider({ children }) {
     menu,
     formData,
     setFormData,
+    errorMessages,
     onLogin: handleLogin,
     onLogout: handleLogout,
     onMenuClick: handleMenuClick,
