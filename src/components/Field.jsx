@@ -71,7 +71,29 @@ export default function Field({ field }) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleChange = (e) => {
-    setFormData((data) => ({ ...data, [field.id]: e.target.value }));
+    const emailFields = [
+      "loginEmail",
+      "signUpEmail",
+      "emailRecovery",
+      "emailSettings",
+      "emailReset",
+    ];
+
+    // keep email fields in sync
+    if (emailFields.includes(field.id)) {
+      const email = e.target.value;
+      const obj = Object.fromEntries(emailFields.map((key) => [key, email]));
+
+      setFormData((data) => ({
+        ...data,
+        ...obj,
+      }));
+    }
+
+    setFormData((data) => ({
+      ...data,
+      [field.id]: e.target.value,
+    }));
   };
 
   const toggleEdit = () => {
