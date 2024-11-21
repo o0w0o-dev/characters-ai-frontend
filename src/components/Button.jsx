@@ -1,11 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { useMyContext } from "./Context";
 import { buttonRedirect } from "../config";
-import { login } from "../services/apiAuth";
 
 export default function Button({ button }) {
+  function redirect(clickedButton) {
+    if (clickedButton.id === "resetBtn2") onLogout();
+    const path = buttonRedirect.find(
+      (path) => path.id === clickedButton.id
+    )?.path;
+    navigate(path);
+  }
+
   const navigate = useNavigate();
-  const { formData, onLogin } = useMyContext();
+  const { formData, setFormData, onLogin, onLogout, setErrorMessages } =
+    useMyContext();
 
   const styles = {
     loginBtn: {
@@ -55,25 +63,52 @@ export default function Button({ button }) {
   const isSubmitButton = formButtons.includes(button.id);
 
   // buttons that not in menu
-  function handleClick(e) {
-    if (isSubmitButton) {
+  async function handleClick(e) {
+    function clearFields() {
+      const fieldsToClean = [
+        "loginPassword",
+        "signUpPassword",
+        "oldPassword",
+        "newPassword",
+        "newPassword2",
+        "verifyCode",
+      ];
+
+      const obj = Object.fromEntries(fieldsToClean.map((key) => [key, ""]));
+
+      setFormData((data) => ({
+        ...data,
+        ...obj,
+      }));
+    }
+
+    console.log({ clicked: e.target.parentNode.id });
+
+    if (isSubmitButton && button.id === "loginBtn") {
       e.preventDefault();
 
       const email = formData.loginEmail;
       const password = formData.loginPassword;
 
-      if (!email || !password) return;
-      login({ email, password });
+      // TODO: uncomment the lines
+      // if (!email || !password) {
+      //   setErrorMessages((errorMessages) => ({
+      //     ...errorMessages,
+      //     login: "Invalid email or password",
+      //   }));
+      //   return;
+      // }
+
+      const success = await onLogin({ email, password });
+      if (success) {
+        redirect(button);
+        clearFields();
+      }
     }
 
-    console.log({ isSubmitButton });
-    console.log(e.target.parentNode.id);
-
-    if (button.id === "loginBtn") onLogin();
-    if (button.id === "verifyContinueBtn") onLogin();
-
-    const path = buttonRedirect.find((path) => path.id === button.id)?.path;
-    navigate(path);
+    if (isSubmitButton && button.id === "verifyContinueBtn") {
+      e.preventDefault();
+    }
   }
 
   const style = styles[button.id];

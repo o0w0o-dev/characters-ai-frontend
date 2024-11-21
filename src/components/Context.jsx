@@ -1,43 +1,92 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { login, getCurrentUser } from "../services/apiAuth";
 import { updateMenu } from "../config";
 
 const Context = createContext();
 
 function Provider({ children }) {
-  // Menu's buttons
   const [isLogin, setIsLogin] = useState(false);
-  const [menu, setMenu] = useState(updateMenu(isLogin, "Home")); // set path to homepage
+  const [menu, setMenu] = useState(updateMenu(false, "Home"));
   const [formData, setFormData] = useState({});
+  const [errorMessages, setErrorMessages] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState({});
 
-  console.log({ menu });
-  console.log({ isLogin });
-  console.log({ formData });
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      const user = await getCurrentUser();
+      setUser(user);
+      setIsLogin(!!user);
+      // setMenu(updateMenu(!!user, "Home"));
+      setLoading(false);
+    };
+
+    fetchCurrentUser();
+  }, []);
 
   function handleMenuClick(elementText) {
     setMenu(updateMenu(isLogin, elementText));
   }
 
-  function handleLogin() {
-    const [isLogin, clickedButton] = [true, "Settings"];
-    setIsLogin(isLogin);
-    setMenu(updateMenu(isLogin, clickedButton));
+  async function handleLogin({ email, password }) {
+    const { data, error } = await login({ email, password });
+
+    if (error) {
+      setIsLogin(false);
+
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        login:
+          error.message === "Invalid login credentials"
+            ? "Invalid email or password"
+            : error.message,
+      }));
+
+      return false;
+    }
+
+    if (data?.user?.aud === "authenticated") {
+      setUser(data.user);
+      setIsLogin(true);
+      setMenu(updateMenu(true, "Home"));
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        login: undefined,
+      }));
+
+      return true;
+    }
+
+    return undefined;
   }
 
   function handleLogout() {
-    const [isLogin, clickedButton] = [false, "Home"];
-    setIsLogin(isLogin);
-    setMenu(updateMenu(isLogin, clickedButton));
+    localStorage.clear();
+    setIsLogin(false);
+    setMenu(updateMenu(false, "Home"));
+    window.location.reload(false);
   }
 
   const value = {
+    user,
     isLogin,
     menu,
+    setMenu,
     formData,
     setFormData,
+    errorMessages,
+    setErrorMessages,
+    loading,
     onLogin: handleLogin,
     onLogout: handleLogout,
     onMenuClick: handleMenuClick,
   };
+
+  console.log({ menu });
+  console.log({ isLogin });
+  console.log({ user });
+  console.log({ formData });
+  console.log({ errorMessages });
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

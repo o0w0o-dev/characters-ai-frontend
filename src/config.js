@@ -10,7 +10,7 @@ const menuButtons = [
 
 // for buttons not in menu
 const buttonRedirect = [
-  { id: "loginBtn", path: "/settings" },
+  { id: "loginBtn", path: "/" },
   { id: "recoveryBtn", path: "/login" },
   { id: "signupBtn", path: "/verify" },
   { id: "verifyBackBtn", path: "/signup" },

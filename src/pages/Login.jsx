@@ -5,7 +5,7 @@ import { useMyContext } from "../components/Context";
 
 export default function Login() {
   const navigate = useNavigate();
-  const { formData } = useMyContext();
+  const { errorMessages } = useMyContext();
 
   return (
     <>
@@ -42,6 +42,8 @@ export default function Login() {
             id: "loginEmail",
           }}
         />
+
+        <div className="login-fail-message">{errorMessages?.login}</div>
       </form>
     </>
   );
