@@ -3,7 +3,7 @@ import { useMyContext } from "./Context";
 
 // TODO: move style to index.css
 export default function Field({ field }) {
-  const { formData, setFormData } = useMyContext();
+  const { user, formData, setFormData } = useMyContext();
 
   const styles = {
     loginEmail: {
@@ -63,25 +63,26 @@ export default function Field({ field }) {
     },
   };
 
+  const emailFields = [
+    "loginEmail",
+    "signUpEmail",
+    "emailRecovery",
+    "emailSettings",
+    "emailReset",
+  ];
+
   const style = styles[field.id];
   const notEditableIDs = ["emailReset", "emailSettings"];
+  const isEmail = emailFields.includes(field.id);
   const isPassword = field.id.toLowerCase().includes("password");
   const isEditable = !notEditableIDs.includes(field.id);
 
   const [isEditing, setIsEditing] = useState(false);
 
   const handleChange = (e) => {
-    const emailFields = [
-      "loginEmail",
-      "signUpEmail",
-      "emailRecovery",
-      "emailSettings",
-      "emailReset",
-    ];
-
     // keep email fields in sync
-    if (emailFields.includes(field.id)) {
-      const email = e.target.value;
+    if (isEmail) {
+      const email = user?.email || e.target.value;
       const obj = Object.fromEntries(emailFields.map((key) => [key, email]));
 
       setFormData((data) => ({
@@ -100,6 +101,14 @@ export default function Field({ field }) {
     setIsEditing(!isEditing);
   };
 
+  // function getFieldValue(formData) {
+  //   return isEmail
+  //     ? user?.email || formData?.[field.id] || ""
+  //     : isPassword
+  //     ? "●".repeat(formData?.[field.id]?.length || 0)
+  //     : formData?.[field.id] || "";
+  // }
+
   return (
     <div className={style.div} onClick={() => setIsEditing(true)}>
       <div className={style.title}>{field.title}</div>
@@ -108,7 +117,7 @@ export default function Field({ field }) {
         <input
           id={field.id}
           type={isPassword ? "password" : "text"}
-          value={formData?.[field.id] || ""}
+          value={isEmail ? user?.email : formData?.[field.id] || ""}
           placeholder={field.text}
           autoFocus
           onChange={handleChange}
@@ -120,6 +129,8 @@ export default function Field({ field }) {
         <div className={style.text} onClick={toggleEdit}>
           {isPassword
             ? "●".repeat(formData?.[field.id]?.length || 0)
+            : isEmail
+            ? user?.email
             : formData?.[field.id] || ""}
         </div>
       )}
