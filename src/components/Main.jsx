@@ -1,6 +1,9 @@
+import { useMyContext } from "./Context";
 import Menu from "./Menu";
+import Home from "../pages/Home";
 
-export default function Main({ children }) {
+export default function Main({ children, protectedRoute }) {
+  const { isLogin, loading } = useMyContext();
   return (
     <div className="main">
       <div className="main-wrapper-2">
@@ -10,7 +13,7 @@ export default function Main({ children }) {
 
             <Menu />
           </div>
-          {children}
+          {loading ? <></> : isLogin === protectedRoute ? children : <Home />}
         </div>
       </div>
     </div>
