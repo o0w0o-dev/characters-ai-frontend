@@ -110,7 +110,11 @@ export default function Field({ field }) {
   // }
 
   return (
-    <div className={style.div} onClick={() => setIsEditing(true)}>
+    <div
+      className={style.div}
+      style={field.id === "oldPassword" ? { display: "none" } : {}}
+      onClick={() => setIsEditing(true)}
+    >
       <div className={style.title}>{field.title}</div>
 
       {isEditing && isEditable ? (
