@@ -101,16 +101,12 @@ export default function Field({ field }) {
     setIsEditing(!isEditing);
   };
 
-  // function getFieldValue(formData) {
-  //   return isEmail
-  //     ? user?.email || formData?.[field.id] || ""
-  //     : isPassword
-  //     ? "●".repeat(formData?.[field.id]?.length || 0)
-  //     : formData?.[field.id] || "";
-  // }
-
   return (
-    <div className={style.div} onClick={() => setIsEditing(true)}>
+    <div
+      className={style.div}
+      style={field.id === "oldPassword" ? { display: "none" } : {}}
+      onClick={() => setIsEditing(true)}
+    >
       <div className={style.title}>{field.title}</div>
 
       {isEditing && isEditable ? (
@@ -121,7 +117,6 @@ export default function Field({ field }) {
           placeholder={field.text}
           autoFocus
           onChange={handleChange}
-          // onBlur={toggleEdit}
           className={style.text}
           style={{ border: "none", background: "transparent", outline: 0 }}
         />

@@ -394,7 +394,8 @@
   width: 222px;
 }
 
-.old-password {
+.new-password {
+  /*old-password*/
   background-color: var(--text);
   border-radius: 15px;
   height: 59px;
@@ -404,7 +405,8 @@
   width: 459px;
 }
 
-.new-password {
+.new-password-2 {
+  /*new-password*/
   background-color: var(--text);
   border-radius: 15px;
   height: 59px;
@@ -414,7 +416,8 @@
   width: 459px;
 }
 
-.new-password-2 {
+.old-password {
+  /*new-password-2*/
   background-color: var(--text);
   border-radius: 15px;
   height: 59px;
@@ -518,5 +521,19 @@
   line-height: var(--text-14-line-height);
   position: absolute;
   top: 691px;
+  white-space: nowrap;
+}
+
+.recovery-message {
+  color: var(--red);
+  font-family: var(--text-14-font-family);
+  font-size: var(--text-14-font-size);
+  font-style: var(--text-14-font-style);
+  font-weight: bold;
+  left: 316px;
+  letter-spacing: var(--text-14-letter-spacing);
+  line-height: var(--text-14-line-height);
+  position: absolute;
+  top: 243px;
   white-space: nowrap;
 }

@@ -4,6 +4,7 @@ import {
   login,
   getCurrentUser,
   updateCurrentUser,
+  recovery,
 } from "../services/apiAuth";
 import { updateMenu } from "../config";
 
@@ -22,7 +23,6 @@ function Provider({ children }) {
       const user = await getCurrentUser();
       setUser(user);
       setIsLogin(!!user);
-      // setMenu(updateMenu(!!user, "Home"));
       setLoading(false);
     };
 
@@ -133,6 +133,30 @@ function Provider({ children }) {
     return undefined;
   }
 
+  async function handleRecovery({ email }) {
+    const { data, error } = await recovery({ email });
+
+    if (error) {
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        recovery: error.message,
+      }));
+
+      return false;
+    }
+
+    if (data) {
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        recovery: "Check your mail box.",
+      }));
+
+      return true;
+    }
+
+    return undefined;
+  }
+
   const value = {
     user,
     isLogin,
@@ -147,6 +171,7 @@ function Provider({ children }) {
     onSignup: handleSignup,
     onLogin: handleLogin,
     onLogout: handleLogout,
+    onRecovery: handleRecovery,
     onMenuClick: handleMenuClick,
   };
 

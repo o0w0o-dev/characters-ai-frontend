@@ -19,6 +19,7 @@ export default function Button({ button }) {
     onLogin,
     onLogout,
     onReset,
+    onRecovery,
     setErrorMessages,
   } = useMyContext();
 
@@ -52,7 +53,6 @@ export default function Button({ button }) {
       div: "reset-1",
       body: "button-verify",
     },
-    // TODO: replace div to button
     resetBtn2: {
       div: "reset-2",
       body: "button-verify",
@@ -134,19 +134,9 @@ export default function Button({ button }) {
     if (isSubmitButton && button.id === "resetBtn2") {
       e.preventDefault();
 
-      const {
-        emailReset: email,
-        oldPassword: password,
-        newPassword,
-        newPassword2,
-      } = formData;
+      const { newPassword, newPassword2 } = formData;
 
-      if (
-        !password ||
-        !newPassword ||
-        !newPassword2 ||
-        newPassword !== newPassword2
-      ) {
+      if (!newPassword || !newPassword2 || newPassword !== newPassword2) {
         setErrorMessages((errorMessages) => ({
           ...errorMessages,
           reset: "Invalid password",
@@ -154,15 +144,27 @@ export default function Button({ button }) {
         return;
       }
 
-      const successLogin = await onLogin({ email, password, reset: true });
-
-      if (successLogin) {
-        const successReset = await onReset({ password: newPassword });
-        if (successReset) {
-          redirect(button);
-          clearFields();
-        }
+      const successReset = await onReset({ password: newPassword });
+      if (successReset) {
+        redirect(button);
+        clearFields();
       }
+    }
+
+    if (isSubmitButton && button.id === "recoveryBtn") {
+      e.preventDefault();
+
+      const { emailRecovery: email } = formData;
+
+      if (!email) {
+        setErrorMessages((errorMessages) => ({
+          ...errorMessages,
+          signup: "Invalid email",
+        }));
+        return;
+      }
+
+      await onRecovery({ email });
     }
 
     if (isSubmitButton && button.id === "verifyContinueBtn") {
