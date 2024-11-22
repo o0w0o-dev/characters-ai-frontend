@@ -4,11 +4,11 @@ import { buttonRedirect } from "../config";
 
 export default function Button({ button }) {
   function redirect(clickedButton) {
-    if (clickedButton.id === "resetBtn2") onLogout();
     const path = buttonRedirect.find(
       (path) => path.id === clickedButton.id
     )?.path;
     navigate(path);
+    if (clickedButton.id === "resetBtn2") onLogout();
   }
 
   const navigate = useNavigate();
