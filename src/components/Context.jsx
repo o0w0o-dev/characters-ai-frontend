@@ -34,7 +34,10 @@ function Provider({ children }) {
     if (error) {
       setErrorMessages((errorMessages) => ({
         ...errorMessages,
-        signup: error.message,
+        signup: error.message.replace(
+          "Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789.",
+          "⚠️ Contain at least 1 character of each: a-z, A-Z, 0-9."
+        ),
       }));
 
       return false;
