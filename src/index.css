@@ -28,7 +28,6 @@
 .main .div-4 {
   background-color: var(--block);
   border-radius: 15px;
-  box-shadow: 0px 4px 4px #00000040;
   height: 872px;
   left: 237px;
   position: absolute;
@@ -536,4 +535,92 @@
   position: absolute;
   top: 243px;
   white-space: nowrap;
+}
+
+.avatar-background {
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+}
+
+.character-item-background {
+  background-color: var(--background);
+  border-radius: 15px;
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 650px;
+  position: relative;
+  width: 459px;
+}
+
+.character-detail-text {
+  color: #ffffff;
+  font-family: var(--text-24-font-family);
+  font-size: var(--text-24-font-size);
+  font-style: var(--text-24-font-style);
+  font-weight: var(--text-24-font-weight);
+  left: 15px;
+  letter-spacing: var(--text-24-letter-spacing);
+  line-height: var(--text-24-line-height);
+  position: absolute;
+  top: 466px;
+  width: 426px;
+}
+
+.character-item-0 {
+  left: 301px !important;
+  position: absolute !important;
+  top: 74px !important;
+}
+
+.character-item-1 {
+  left: 829px !important;
+  position: absolute !important;
+  top: 74px !important;
+}
+
+.character-item-2 {
+  left: 1357px !important;
+  position: absolute !important;
+  top: 74px !important;
+}
+
+.button-addItem {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 316px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 774px;
+  width: 222px;
+}
+
+.button-pervious {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 1342px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 774px;
+  width: 222px;
+}
+
+.button-next {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 1579px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 774px;
+  width: 222px;
 }
