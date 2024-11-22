@@ -29,9 +29,17 @@ export async function getCurrentUser() {
 }
 
 export async function updateCurrentUser({ password }) {
-  if (!password) return { error: { message: "Invalid password test" } };
+  if (!password) return { error: { message: "Invalid password" } };
 
   const { data, error } = await supabase.auth.updateUser({ password });
+
+  return { data, error };
+}
+
+export async function recovery({ email }) {
+  if (!email) return { error: { message: "Invalid email" } };
+
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email);
 
   return { data, error };
 }
