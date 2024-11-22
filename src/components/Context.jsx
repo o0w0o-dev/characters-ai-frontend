@@ -23,7 +23,6 @@ function Provider({ children }) {
       const user = await getCurrentUser();
       setUser(user);
       setIsLogin(!!user);
-      // setMenu(updateMenu(!!user, "Home"));
       setLoading(false);
     };
 

@@ -53,7 +53,6 @@ export default function Button({ button }) {
       div: "reset-1",
       body: "button-verify",
     },
-    // TODO: replace div to button
     resetBtn2: {
       div: "reset-2",
       body: "button-verify",
@@ -135,27 +134,15 @@ export default function Button({ button }) {
     if (isSubmitButton && button.id === "resetBtn2") {
       e.preventDefault();
 
-      const {
-        // emailReset: email,
-        // oldPassword: password,
-        newPassword,
-        newPassword2,
-      } = formData;
+      const { newPassword, newPassword2 } = formData;
 
-      if (
-        // !password ||
-        !newPassword ||
-        !newPassword2 ||
-        newPassword !== newPassword2
-      ) {
+      if (!newPassword || !newPassword2 || newPassword !== newPassword2) {
         setErrorMessages((errorMessages) => ({
           ...errorMessages,
           reset: "Invalid password",
         }));
         return;
       }
-
-      // const successLogin = await onLogin({ email, password, reset: true });
 
       const successReset = await onReset({ password: newPassword });
       if (successReset) {
