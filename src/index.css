@@ -506,3 +506,17 @@
   transform: translate(-50%, -50%);
   white-space: nowrap;
 }
+
+.reset-fail-message {
+  color: var(--red);
+  font-family: var(--text-14-font-family);
+  font-size: var(--text-14-font-size);
+  font-style: var(--text-14-font-style);
+  font-weight: bold;
+  left: 320px;
+  letter-spacing: var(--text-14-letter-spacing);
+  line-height: var(--text-14-line-height);
+  position: absolute;
+  top: 691px;
+  white-space: nowrap;
+}

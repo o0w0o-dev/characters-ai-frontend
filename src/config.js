@@ -15,6 +15,7 @@ const buttonRedirect = [
   { id: "signupBtn", path: "/login" },
   { id: "verifyBackBtn", path: "/signup" },
   { id: "verifyContinueBtn", path: "/" },
+  { id: "resetBtn2", path: "/" },
 ];
 
 function updateMenu(isLogin, clickedButton) {

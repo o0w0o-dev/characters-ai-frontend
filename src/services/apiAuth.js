@@ -6,8 +6,6 @@ export async function signup({ email, password }) {
     password,
   });
 
-  // if (error) throw new Error(error.message);
-
   return { data, error };
 }
 
@@ -16,8 +14,6 @@ export async function login({ email, password }) {
     email,
     password,
   });
-
-  // if (error) throw new Error(error.message);
 
   console.log(data);
   return { data, error };
@@ -29,6 +25,13 @@ export async function getCurrentUser() {
 
   const { data, error } = await supabase.auth.getUser();
 
-  // if (error) throw new Error(error.message);
   return data?.user;
+}
+
+export async function updateCurrentUser({ password }) {
+  if (!password) return { error: { message: "Invalid password test" } };
+
+  const { data, error } = await supabase.auth.updateUser({ password });
+
+  return { data, error };
 }
