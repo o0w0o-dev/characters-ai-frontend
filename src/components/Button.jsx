@@ -18,6 +18,7 @@ export default function Button({ button }) {
     onSignup,
     onLogin,
     onLogout,
+    onReset,
     setErrorMessages,
   } = useMyContext();
 
@@ -93,8 +94,7 @@ export default function Button({ button }) {
     if (isSubmitButton && button.id === "loginBtn") {
       e.preventDefault();
 
-      const email = formData.loginEmail;
-      const password = formData.loginPassword;
+      const { loginEmail: email, loginPassword: password } = formData;
 
       if (!email || !password) {
         setErrorMessages((errorMessages) => ({
@@ -114,8 +114,7 @@ export default function Button({ button }) {
     if (isSubmitButton && button.id === "signupBtn") {
       e.preventDefault();
 
-      const email = formData.signUpEmail;
-      const password = formData.signUpPassword;
+      const { signUpEmail: email, signUpPassword: password } = formData;
 
       if (!email || !password) {
         setErrorMessages((errorMessages) => ({
@@ -132,6 +131,40 @@ export default function Button({ button }) {
       }
     }
 
+    if (isSubmitButton && button.id === "resetBtn2") {
+      e.preventDefault();
+
+      const {
+        emailReset: email,
+        oldPassword: password,
+        newPassword,
+        newPassword2,
+      } = formData;
+
+      if (
+        !password ||
+        !newPassword ||
+        !newPassword2 ||
+        newPassword !== newPassword2
+      ) {
+        setErrorMessages((errorMessages) => ({
+          ...errorMessages,
+          reset: "Invalid password",
+        }));
+        return;
+      }
+
+      const successLogin = await onLogin({ email, password, reset: true });
+
+      if (successLogin) {
+        const successReset = await onReset({ password: newPassword });
+        if (successReset) {
+          redirect(button);
+          clearFields();
+        }
+      }
+    }
+
     if (isSubmitButton && button.id === "verifyContinueBtn") {
       e.preventDefault();
     }
@@ -140,7 +173,7 @@ export default function Button({ button }) {
   const style = styles[button.id];
 
   return (
-    <button
+    <div
       id={button.id}
       type={isSubmitButton ? "submit" : "button"}
       className={style.div}
@@ -151,6 +184,6 @@ export default function Button({ button }) {
       <div className="text-wrapper-16" id={button.id}>
         {button.text}
       </div>
-    </button>
+    </div>
   );
 }
