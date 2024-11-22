@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Field from "../components/Field";
+import { useMyContext } from "../components/Context";
 
 export default function SignUp() {
   const navigate = useNavigate();
+  const { errorMessages } = useMyContext();
+
   return (
     <>
-      <div className="login">
+      <form className="login">
         <p className="don-t-have-an-account" onClick={() => navigate("/login")}>
           Already have an account? Login
         </p>
@@ -30,7 +33,8 @@ export default function SignUp() {
             id: "signUpEmail",
           }}
         />
-      </div>
+        <div className="login-fail-message">{errorMessages?.signup}</div>
+      </form>
     </>
   );
 }

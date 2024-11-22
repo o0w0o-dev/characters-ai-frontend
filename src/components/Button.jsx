@@ -12,8 +12,14 @@ export default function Button({ button }) {
   }
 
   const navigate = useNavigate();
-  const { formData, setFormData, onLogin, onLogout, setErrorMessages } =
-    useMyContext();
+  const {
+    formData,
+    setFormData,
+    onSignup,
+    onLogin,
+    onLogout,
+    setErrorMessages,
+  } = useMyContext();
 
   const styles = {
     loginBtn: {
@@ -90,16 +96,36 @@ export default function Button({ button }) {
       const email = formData.loginEmail;
       const password = formData.loginPassword;
 
-      // TODO: uncomment the lines
-      // if (!email || !password) {
-      //   setErrorMessages((errorMessages) => ({
-      //     ...errorMessages,
-      //     login: "Invalid email or password",
-      //   }));
-      //   return;
-      // }
+      if (!email || !password) {
+        setErrorMessages((errorMessages) => ({
+          ...errorMessages,
+          login: "Invalid email or password",
+        }));
+        return;
+      }
 
       const success = await onLogin({ email, password });
+      if (success) {
+        redirect(button);
+        clearFields();
+      }
+    }
+
+    if (isSubmitButton && button.id === "signupBtn") {
+      e.preventDefault();
+
+      const email = formData.signUpEmail;
+      const password = formData.signUpPassword;
+
+      if (!email || !password) {
+        setErrorMessages((errorMessages) => ({
+          ...errorMessages,
+          signup: "Invalid email or password",
+        }));
+        return;
+      }
+
+      const success = await onSignup({ email, password });
       if (success) {
         redirect(button);
         clearFields();

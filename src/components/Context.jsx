@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { login, getCurrentUser } from "../services/apiAuth";
+import { signup, login, getCurrentUser } from "../services/apiAuth";
 import { updateMenu } from "../config";
 
 const Context = createContext();
@@ -26,6 +26,36 @@ function Provider({ children }) {
 
   function handleMenuClick(elementText) {
     setMenu(updateMenu(isLogin, elementText));
+  }
+
+  async function handleSignup({ email, password }) {
+    const { data, error } = await signup({ email, password });
+
+    if (error) {
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        signup: error.message.replace(
+          "Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789.",
+          "⚠️ Contain at least 1 character of each: a-z, A-Z, 0-9."
+        ),
+      }));
+
+      return false;
+    }
+
+    console.log(data);
+
+    if (data?.user?.aud === "authenticated") {
+      setMenu(updateMenu(false, "Login"));
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        signup: undefined,
+      }));
+
+      return true;
+    }
+
+    return undefined;
   }
 
   async function handleLogin({ email, password }) {
@@ -77,6 +107,7 @@ function Provider({ children }) {
     errorMessages,
     setErrorMessages,
     loading,
+    onSignup: handleSignup,
     onLogin: handleLogin,
     onLogout: handleLogout,
     onMenuClick: handleMenuClick,
