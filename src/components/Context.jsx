@@ -1,5 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { signup, login, getCurrentUser } from "../services/apiAuth";
+import {
+  signup,
+  login,
+  getCurrentUser,
+  updateCurrentUser,
+} from "../services/apiAuth";
 import { updateMenu } from "../config";
 
 const Context = createContext();
@@ -43,8 +48,6 @@ function Provider({ children }) {
       return false;
     }
 
-    console.log(data);
-
     if (data?.user?.aud === "authenticated") {
       setMenu(updateMenu(false, "Login"));
       setErrorMessages((errorMessages) => ({
@@ -58,12 +61,14 @@ function Provider({ children }) {
     return undefined;
   }
 
-  async function handleLogin({ email, password }) {
+  async function handleLogin({ email, password, reset }) {
     const { data, error } = await login({ email, password });
 
     if (error) {
-      setIsLogin(false);
-
+      if (reset) {
+      } else {
+        setIsLogin(false);
+      }
       setErrorMessages((errorMessages) => ({
         ...errorMessages,
         login:
@@ -76,9 +81,12 @@ function Provider({ children }) {
     }
 
     if (data?.user?.aud === "authenticated") {
-      setUser(data.user);
-      setIsLogin(true);
-      setMenu(updateMenu(true, "Home"));
+      if (reset) {
+      } else {
+        setUser(data.user);
+        setIsLogin(true);
+        setMenu(updateMenu(true, "Home"));
+      }
       setErrorMessages((errorMessages) => ({
         ...errorMessages,
         login: undefined,
@@ -97,6 +105,34 @@ function Provider({ children }) {
     window.location.reload(false);
   }
 
+  async function handleReset({ password }) {
+    const { data, error } = await updateCurrentUser({ password });
+
+    if (error) {
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        reset: error.message.replace(
+          "Password should contain at least one character of each: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ, 0123456789.",
+          "⚠️ Contain at least 1 character of each: a-z, A-Z, 0-9."
+        ),
+      }));
+
+      return false;
+    }
+
+    if (data?.user?.aud === "authenticated") {
+      setMenu(updateMenu(false, "Login"));
+      setErrorMessages((errorMessages) => ({
+        ...errorMessages,
+        reset: undefined,
+      }));
+
+      return true;
+    }
+
+    return undefined;
+  }
+
   const value = {
     user,
     isLogin,
@@ -107,6 +143,7 @@ function Provider({ children }) {
     errorMessages,
     setErrorMessages,
     loading,
+    onReset: handleReset,
     onSignup: handleSignup,
     onLogin: handleLogin,
     onLogout: handleLogout,
