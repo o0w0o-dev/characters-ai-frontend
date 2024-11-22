@@ -57,6 +57,18 @@ export default function Button({ button }) {
       div: "reset-2",
       body: "button-verify",
     },
+    addItem: {
+      div: "button-addItem",
+      body: "button-verify",
+    },
+    pervious: {
+      div: "button-pervious",
+      body: "button-verify",
+    },
+    next: {
+      div: "button-next",
+      body: "button-verify",
+    },
   };
 
   const formButtons = [
