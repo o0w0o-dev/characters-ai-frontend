@@ -12,7 +12,7 @@ const menuButtons = [
 const buttonRedirect = [
   { id: "loginBtn", path: "/" },
   { id: "recoveryBtn", path: "/login" },
-  { id: "signupBtn", path: "/verify" },
+  { id: "signupBtn", path: "/login" },
   { id: "verifyBackBtn", path: "/signup" },
   { id: "verifyContinueBtn", path: "/" },
 ];
