@@ -1,18 +1,12 @@
-import { useNavigate } from "react-router-dom";
 import { useMyContext } from "../components/Context";
+import Button from "../components/Button";
 import Field from "../components/Field";
 
-// TODO: Fix the button element, hardcoded navigate path
 export default function ResetPassword() {
-  const navigate = useNavigate();
-  const { onLogout } = useMyContext();
+  const { errorMessages } = useMyContext();
 
-  function handleClick() {
-    onLogout();
-    navigate("/");
-  }
   return (
-    <>
+    <form>
       <Field
         field={{
           title: "Email",
@@ -20,12 +14,7 @@ export default function ResetPassword() {
           id: "emailReset",
         }}
       />
-
-      <div className="reset-2" onClick={handleClick}>
-        <div className="button-verify" />
-
-        <div className="text-wrapper-16">Reset</div>
-      </div>
+      <Button button={{ id: "resetBtn2", text: "Reset" }} />
       <Field
         field={{
           title: "Old password",
@@ -47,6 +36,10 @@ export default function ResetPassword() {
           id: "newPassword2",
         }}
       />
-    </>
+
+      <div className="reset-fail-message">
+        {errorMessages?.login || errorMessages?.reset}
+      </div>
+    </form>
   );
 }
