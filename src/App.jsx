@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "./components/Context";
+import Character from "./pages/Character";
 import Characters from "./pages/Characters";
 import EmailVerification from "./pages/EmailVerification";
 import ForgotPassword from "./pages/ForgotPassword";
@@ -78,6 +79,14 @@ function App() {
             element={
               <Main protectedRoute={true} selected={"Characters"}>
                 <Characters />
+              </Main>
+            }
+          />
+          <Route
+            path="/character"
+            element={
+              <Main protectedRoute={true} selected={"Characters"}>
+                <Character />
               </Main>
             }
           />
