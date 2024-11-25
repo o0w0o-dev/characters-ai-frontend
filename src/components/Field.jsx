@@ -61,6 +61,21 @@ export default function Field({ field }) {
       title: "email-title-text-24",
       text: "email-text-24-block",
     },
+    characterName: {
+      div: "field-character-name",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
+    characterModel: {
+      div: "field-character-model",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
+    instructions: {
+      div: "field-instructions",
+      title: "email-title-text-24",
+      text: "email-text-24-block",
+    },
   };
 
   const emailFields = [
