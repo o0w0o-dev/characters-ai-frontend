@@ -310,6 +310,16 @@
   width: 222px;
 }
 
+.button-body-delete {
+  background-color: var(--red);
+  border-radius: 15px;
+  height: 59px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 222px;
+}
+
 .button-verify-continue {
   all: unset;
   align-items: center;
@@ -623,4 +633,85 @@
   position: absolute;
   top: 774px;
   width: 222px;
+}
+
+.button-create {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 789px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 738px;
+  width: 222px;
+}
+
+.button-chat {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 1026px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 738px;
+  width: 222px;
+}
+
+.button-delete {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  height: 59px;
+  justify-content: center;
+  left: 316px;
+  padding: 7px 36px;
+  position: absolute;
+  top: 739px;
+  width: 222px;
+}
+
+.field-character-name {
+  background-color: var(--text);
+  border-radius: 15px;
+  height: 59px;
+  left: 316px;
+  position: absolute;
+  top: 148px;
+  width: 459px;
+}
+
+.field-character-model {
+  background-color: var(--text);
+  border-radius: 15px;
+  height: 59px;
+  left: 316px;
+  position: absolute;
+  top: 296px;
+  width: 459px;
+}
+
+.field-instructions {
+  background-color: var(--text);
+  border-radius: 15px;
+  height: 206px;
+  left: 316px;
+  position: absolute;
+  top: 444px;
+  width: 932px;
+}
+
+.character-avatar-bg {
+  background-color: var(--selected);
+  border-radius: 15px;
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 281px;
+  width: 379px;
+  left: 869px !important;
+  position: absolute !important;
+  top: 74px !important;
 }
