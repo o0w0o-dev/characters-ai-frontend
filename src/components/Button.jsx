@@ -69,6 +69,18 @@ export default function Button({ button }) {
       div: "button-next",
       body: "button-verify",
     },
+    characterCreate: {
+      div: "button-create",
+      body: "button-verify",
+    },
+    chat: {
+      div: "button-chat",
+      body: "button-verify",
+    },
+    delete: {
+      div: "button-delete",
+      body: "button-body-delete",
+    },
   };
 
   const formButtons = [
