@@ -1,1 +1,1 @@
-# character-ai-frontend
+# characters-ai-frontend
